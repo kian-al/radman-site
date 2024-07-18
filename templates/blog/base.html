@@ -7,6 +7,29 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   <title>رادمان گستر</title>
+  <script>
+    function updateClock(initialTime) {
+        var now = new Date(initialTime);
+        setInterval(function() {
+            now.setSeconds(now.getSeconds() + 1);
+            var hours = now.getHours();
+            var minutes = now.getMinutes();
+            var seconds = now.getSeconds();
+            if (hours < 10) hours = '0' + hours;
+            if (minutes < 10) minutes = '0' + minutes;
+            if (seconds < 10) seconds = '0' + seconds;
+            var timeString = hours + ':' + minutes + ':' + seconds;
+            document.getElementById('clock').innerHTML = timeString;
+        }, 1000);
+    }
+  </script>
+  <style>
+      #clock {
+          color: white;
+          font-family: Arial, sans-serif;
+          font-weight: bold;
+      }
+  </style>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -27,7 +50,7 @@
   <link href="{% static 'vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+  <link href="{% static '/static/style.css' %}" rel="stylesheet">
 
   <!-- =======================================================
   * Template Name: Sailor
@@ -38,9 +61,7 @@
   ======================================================== -->
 </head>
 
-<body>
-
-  <!-- ======= Header ======= -->
+<body onload="updateClock('{{ clock|escapejs }}')">  <!-- ======= Header ======= -->
   <header id="header" class="fixed-top d-flex align-items-center">
     <div class="container d-flex align-items-center">
 
@@ -82,11 +103,11 @@
       <div class="carousel-inner" role="listbox">
 
         <!-- Slide 1 -->
-        <div class="carousel-item active" style="background-image: url({% static 'img/slide/slide-1.jpg' %})">
+        <div class="carousel-item active" style="background-image: url({% static 'img/slide/p1.jpg' %})">
           <div class="carousel-container">
             <div class="container">
               <h2 class="animate__animated animate__fadeInDown">Welcome to <span>Sailor</span></h2>
-              <h2 class="animate__animated animate__fadeInDown" style="color: rgb(51, 164, 179);"><span>{{clock}}</span></h2>
+              <h1><span id="clock">{{ clock }}</span></h1>
               <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
               <a href="{% url 'blog:about' %}" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
             </div>
@@ -94,7 +115,7 @@
         </div>
 
         <!-- Slide 2 -->
-        <div class="carousel-item" style="background-image: url({% static 'img/slide/slide-2.jpg' %})">
+        <div class="carousel-item" style="background-image: url({% static 'img/slide/p2.jpg' %})">
           <div class="carousel-container">
             <div class="container">
               <h2 class="animate__animated animate__fadeInDown">Lorem Ipsum Dolor</h2>
@@ -105,7 +126,7 @@
         </div>
 
         <!-- Slide 3 -->
-        <div class="carousel-item" style="background-image: url({% static 'img/slide/slide-3.jpg' %})">
+        <div class="carousel-item" style="background-image: url({% static 'img/slide/p3.jpg' %})">
           <div class="carousel-container">
             <div class="container">
               <h2 class="animate__animated animate__fadeInDown">Sequi ea ut et est quaerat</h2>
@@ -242,125 +263,125 @@
           <div class="col-lg-12 d-flex justify-content-center">
             <ul id="portfolio-flters">
               <li data-filter="*" class="filter-active">All</li>
-              <li data-filter=".filter-app">App</li>
-              <li data-filter=".filter-card">Card</li>
-              <li data-filter=".filter-web">Web</li>
+              <li data-filter=".filter-camera">camera</li><!--filter-app-->
+              <li data-filter=".filter-network">network</li><!--filter-card-->
+              <li data-filter=".filter-Tower">Tower</li><!--filter-web-->
             </ul>
           </div>
         </div>
         <div class="row portfolio-container">
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+          <div class="col-lg-4 col-md-6 portfolio-item filter-camera">
             <div class="portfolio-wrap">
-              <img src="{% static 'img/portfolio/portfolio-1.jpg' %}" class="img-fluid" alt="">
+              <img src="{% static 'img/portfolio/p1.jpg' %}" class="img-fluid" alt="">
               <div class="portfolio-info">
-                <h4>App 1</h4>
-                <p>App</p>
+                <h4>camera 1</h4>
+                <p>camera</p>
                 <div class="portfolio-links">
-                  <a href="{% static 'img/portfolio/portfolio-1.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a>
+                  <a href="{% static 'img/portfolio/p2.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a>
                   <a href="{% url 'blog:portfolio_details' %}" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a>
                 </div>
               </div>
             </div>
           </div>
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+          <div class="col-lg-4 col-md-6 portfolio-item filter-Tower">
             <div class="portfolio-wrap">
-              <img src="{% static 'img/portfolio/portfolio-2.jpg' %}" class="img-fluid" alt="">
+              <img src="{% static 'img/portfolio/p3.jpg' %}" class="img-fluid" alt="">
               <div class="portfolio-info">
-                <h4>Web 3</h4>
-                <p>Web</p>
+                <h4>tower 3</h4>
+                <p>tower</p>
                 <div class="portfolio-links">
-                  <a href="{% static 'img/portfolio/portfolio-2.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a>
+                  <a href="{% static 'img/portfolio/p4.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a>
                   <a href="{% url 'blog:portfolio_details' %}" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a>
                 </div>
               </div>
             </div>
           </div>
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+          <div class="col-lg-4 col-md-6 portfolio-item filter-camera">
             <div class="portfolio-wrap">
-              <img src="{% static 'img/portfolio/portfolio-3.jpg' %}" class="img-fluid" alt="">
+              <img src="{% static 'img/portfolio/p5.jpg' %}" class="img-fluid" alt="">
               <div class="portfolio-info">
-                <h4>App 2</h4>
-                <p>App</p>
+                <h4>camera 2</h4>
+                <p>camera</p>
                 <div class="portfolio-links">
-                  <a href="{% static 'img/portfolio/portfolio-3.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 2"><i class="bx bx-plus"></i></a>
+                  <a href="{% static 'img/portfolio/p6.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 2"><i class="bx bx-plus"></i></a>
                   <a href="{% url 'blog:portfolio_details' %}" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a>
                 </div>
               </div>
             </div>
           </div>
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+          <div class="col-lg-4 col-md-6 portfolio-item filter-network">
             <div class="portfolio-wrap">
-              <img src="{% static 'img/portfolio/portfolio-4.jpg' %}" class="img-fluid" alt="">
+              <img src="{% static 'img/portfolio/p7.jpg' %}" class="img-fluid" alt="">
               <div class="portfolio-info">
-                <h4>Card 2</h4>
-                <p>Card</p>
+                <h4>network 2</h4>
+                <p>network</p>
                 <div class="portfolio-links">
-                  <a href="{% static 'img/portfolio/portfolio-4.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 2"><i class="bx bx-plus"></i></a>
+                  <a href="{% static 'img/portfolio/p8.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 2"><i class="bx bx-plus"></i></a>
                   <a href="{% url 'blog:portfolio_details' %}" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a>
                 </div>
               </div>
             </div>
           </div>
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+          <div class="col-lg-4 col-md-6 portfolio-item filter-Tower">
             <div class="portfolio-wrap">
-              <img src="{% static 'img/portfolio/portfolio-5.jpg' %}" class="img-fluid" alt="">
+              <img src="{% static 'img/portfolio/p9.jpg' %}" class="img-fluid" alt="">
               <div class="portfolio-info">
-                <h4>Web 2</h4>
-                <p>Web</p>
+                <h4>tower 2</h4>
+                <p>tower</p>
                 <div class="portfolio-links">
-                  <a href="{% static 'img/portfolio/portfolio-5.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 2"><i class="bx bx-plus"></i></a>
+                  <a href="{% static 'img/portfolio/p10.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 2"><i class="bx bx-plus"></i></a>
                   <a href="{% url 'blog:portfolio_details' %}" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a>
                 </div>
               </div>
             </div>
           </div>
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+          <div class="col-lg-4 col-md-6 portfolio-item filter-camera">
             <div class="portfolio-wrap">
-              <img src="{% static 'img/portfolio/portfolio-6.jpg' %}" class="img-fluid" alt="">
+              <img src="{% static 'img/portfolio/p11.jpg' %}" class="img-fluid" alt="">
               <div class="portfolio-info">
-                <h4>App 3</h4>
-                <p>App</p>
+                <h4>camera 3</h4>
+                <p>camera</p>
                 <div class="portfolio-links">
-                  <a href="{% static 'img/portfolio/portfolio-6.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 3"><i class="bx bx-plus"></i></a>
+                  <a href="{% static 'img/portfolio/p12.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 3"><i class="bx bx-plus"></i></a>
                   <a href="{% url 'blog:portfolio_details' %}" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a>
                 </div>
               </div>
             </div>
           </div>
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+          <div class="col-lg-4 col-md-6 portfolio-item filter-network">
             <div class="portfolio-wrap">
-              <img src="{% static 'img/portfolio/portfolio-7.jpg' %}" class="img-fluid" alt="">
+              <img src="{% static 'img/portfolio/p13.jpg' %}" class="img-fluid" alt="">
               <div class="portfolio-info">
-                <h4>Card 1</h4>
-                <p>Card</p>
+                <h4>network 1</h4>
+                <p>network</p>
                 <div class="portfolio-links">
-                  <a href="{% static 'img/portfolio/portfolio-7.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 1"><i class="bx bx-plus"></i></a>
+                  <a href="{% static 'img/portfolio/p14.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 1"><i class="bx bx-plus"></i></a>
                   <a href="{% url 'blog:portfolio_details' %}" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a>
                 </div>
               </div>
             </div>
           </div>
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+          <div class="col-lg-4 col-md-6 portfolio-item filter-network">
             <div class="portfolio-wrap">
-              <img src="{% static 'img/portfolio/portfolio-8.jpg' %}" class="img-fluid" alt="">
+              <img src="{% static 'img/portfolio/p15.jpg' %}" class="img-fluid" alt="">
               <div class="portfolio-info">
-                <h4>Card 3</h4>
-                <p>Card</p>
+                <h4>network 3</h4>
+                <p>network</p>
                 <div class="portfolio-links">
-                  <a href="{% static 'img/portfolio/portfolio-8.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 3"><i class="bx bx-plus"></i></a>
+                  <a href="{% static 'img/portfolio/p16.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 3"><i class="bx bx-plus"></i></a>
                   <a href="{% url 'blog:portfolio_details' %}" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a>
                 </div>
               </div>
             </div>
           </div>
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+          <div class="col-lg-4 col-md-6 portfolio-item filter-Tower">
             <div class="portfolio-wrap">
-              <img src="{% static 'img/portfolio/portfolio-9.jpg' %}" class="img-fluid" alt="">
+              <img src="{% static 'img/portfolio/p17.jpg' %}" class="img-fluid" alt="">
               <div class="portfolio-info">
-                <h4>Web 3</h4>
-                <p>Web</p>
+                <h4>tower 1</h4>
+                <p>tower</p>
                 <div class="portfolio-links">
-                  <a href="{% static 'img/portfolio/portfolio-9.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a>
+                  <a href="{% static 'img/portfolio/p18.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a>
                   <a href="{% url 'blog:portfolio_details' %}" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a>
                 </div>
               </div>
@@ -431,7 +452,7 @@
         <!-- You can delete the links only if you purchased the pro version. -->
         <!-- Licensing information: https://bootstrapmade.com/license/ -->
         <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/sailor-free-bootstrap-theme/ -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        create by <a href="https://www.linkedin.com/in/kian-almasi">Kian Almasi</a>
       </div>
     </div>
   </footer><!-- End Footer -->

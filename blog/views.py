@@ -1,12 +1,9 @@
 from django.shortcuts import render
-from django.http import HttpResponse  
+from django.http import HttpResponse
+from django.utils import timezone
 def base_view(request):
-    while True:
-        import time  
-        current_time = time.localtime()  
-        current_clock = time.strftime("%H:%M:%S", current_time)
-        clock=current_clock  
-        return render(request, 'blog/base.html',{'clock':clock})
+    current_time = timezone.now()
+    return render(request, 'blog/base.html', {'clock': current_time})
 def services(request):
     return render(request,'blog/services.html')
 def about(request):
@@ -23,6 +20,4 @@ def testimonials(request):
     return render(request,'blog/testimonials.html')
 def pricing(request):
     return render(request,'blog/pricing.html')
-def test(request):
 
-    return render(request,'blog/test.html',)
