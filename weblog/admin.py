@@ -1,5 +1,5 @@
 from django.contrib import admin
-from weblog.models import post
+from weblog.models import post,Category
 # Register your models here.
 class postadmin(admin.ModelAdmin):
     date_hierarchy="created_date"
@@ -8,3 +8,4 @@ class postadmin(admin.ModelAdmin):
     list_filter=("counted_view","status","updated_date","created_date","author")
     search_fields=["title","content"]
 admin.site.register(post,postadmin)
+admin.site.register(Category)

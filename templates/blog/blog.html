@@ -5,7 +5,8 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <title>رادمان گستر</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
@@ -103,16 +104,21 @@
               <h2 class="entry-title">
                 <a href="{% url 'weblog:blog_single' pid=post.id%}">{{post.title}}</a>
               </h2>
-
+              
               <div class="entry-meta">
                 <ul>
-                    <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="{% url 'weblog:blog_single' pid=post.id%}">{{post.author.get_full_name}}</a></li>
-                    <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="{% url 'weblog:blog_single' pid=post.id%}">{{ post.published_date }}</a></li>
-                    <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="{% url 'weblog:blog_single' pid=post.id%}">{{post.counted_view}}</a></li>
+                    <li class="d-flex align-items-center"><i class="bi bi-person" style="color:DodgerBlue"></i> <a href="{% url 'weblog:blog_single' pid=post.id%}">{{post.author.get_full_name}}</a></li>
+                    <li class="d-flex align-items-center"><i class="bi bi-clock" style="color:DodgerBlue"></i> <a href="{% url 'weblog:blog_single' pid=post.id%}">{{ post.published_date }}</a></li>
+                    <li class="d-flex align-items-center"><i class="bi bi-chat-dots" style="color:DodgerBlue"></i> <a href="{% url 'weblog:blog_single' pid=post.id%}">{{post.counted_view}}</a></li>
+                    {% for cat in post.category.all %}
+                    <li class="d-flex align-items-center"><i style="font-size:24px;color:DodgerBlue" class="fa">&#xf126;</i> <a href="{% url 'weblog:blog_single' pid=post.id%}">{{ cat.name }}</a></li>
+                    {% endfor %}  
+                    
                 </ul>
             </div>
             
-
+            
+                      
               <div class="entry-content">
                 <p>{{post.content}}</p>
                 <div class="read-more">
