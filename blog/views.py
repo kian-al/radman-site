@@ -18,6 +18,4 @@ def portfolio_details(request):
     return render(request,'blog/portfolio-details.html')
 def testimonials(request):
     return render(request,'blog/testimonials.html')
-def pricing(request):
-    return render(request,'blog/pricing.html')
 

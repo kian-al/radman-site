@@ -19,6 +19,9 @@ class post(models.Model):
     author=models.ForeignKey(User,on_delete=models.SET_NULL,null=True)
     counted_view=models.IntegerField(default=0)
     status=models.BooleanField(default=False)
+    writer_image=models.ImageField(upload_to="weblog/",default="weblog/image_file/p2.jpg")
+    writer_linkedin_account=models.URLField(default="https://www.linkedin.com/in/kian-almasi-0a4016256/")
+    writer_summary=models.TextField()
     published_date=models.DateField(null=True)
     created_date=models.DateTimeField(auto_now_add=True)
     updated_date=models.DateTimeField(auto_now=True)
@@ -30,4 +33,5 @@ class post(models.Model):
 
     def __str__(self):
         return self.title
+    
     
