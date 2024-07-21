@@ -1,5 +1,6 @@
 {% load static %}
 {% load blog_tags %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,14 +33,6 @@
 
   <!-- Template Main CSS File -->
   <link href="{% static '/static/style.css' %}" rel="stylesheet">
-
-  <!-- =======================================================
-  * Template Name: Sailor
-  * Template URL: https://bootstrapmade.com/sailor-free-bootstrap-theme/
-  * Updated: Mar 17 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 
 <body>
@@ -49,8 +42,6 @@
     <div class="container d-flex align-items-center">
 
       <h1 class="logo me-auto"><a href="{% url 'blog:home' %}">رادمان گستر عصر دانش</a></h1>
-      <!-- Uncomment below if you prefer to use an image logo -->
-      <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
       <nav id="navbar" class="navbar">
         <ul>
@@ -114,21 +105,21 @@
 
               <div class="entry-meta">
                 <ul>
-                  <li class="d-flex align-items-center"><i class="bi bi-person" style="color:DodgerBlue"></i> <a href="{% url 'weblog:blog_single' pid=post.id%}">{{post.author.get_full_name}}</a></li>
+                  <li class="d-flex align-items-center"><i class="bi bi-person" style="color:DodgerBlue"></i> <a href="{% url 'weblog:author' author_username=post.author.username %}">{{post.author.get_full_name}}</a></li>
                   <li class="d-flex align-items-center"><i class="bi bi-clock" style="color:DodgerBlue"></i> <a href="{% url 'weblog:blog_single' pid=post.id%}"><time datetime="2020-01-01">{{post.published_date|date:"D / d / M / Y"}}</time></a></li>
                   <li class="d-flex align-items-center"><i class="bi bi-chat-dots" style="color:DodgerBlue"></i> <a href="{% url 'weblog:blog_single' pid=post.id%}">12 Comments</a></li>
                 </ul>
               </div>
 
               <div class="entry-content">
-                <p>{{post.content}}</p>
+                <p align='rtl'>{{post.content}}</p>
                 <img src="{{post.image_single_blog.url}}" class="img-fluid" alt="">
               </div>
 
               <div class="entry-footer">
                 <ul class="cats">
                   {% for cat in post.category.all %}
-                  <li class="d-flex align-items-center"><i style="font-size:24px;color:DodgerBlue" class="fa ">&#xf126;</i> <a href="{% url 'weblog:blog_single' pid=post.id%}">{{ cat.name }}</a></li>
+                  <li class="d-flex align-items-center"><i style="font-size:24px;color:DodgerBlue" class="fa ">&#xf126;</i> <a href="{% url 'weblog:category' cat.name %}">{{ cat.name }}</a></li>
                   {% endfor %}
                 </ul>
               </div>
@@ -140,7 +131,7 @@
               <div>
                 <h4 style="color: black; font-weight: bold;">{{post.author.get_full_name}}</h4>
                 <div class="social-links">
-                  <a href="{{post.writer_linkedin_account}}"><i class="biu bi-linkedin" style="color: DodgerBlue; font-weight: bold;"></i></a>
+                  <a href="{{post.writer_linkedin_account}}" style="color: DodgerBlue;font-weight: bold;">Linked<i class="biu bi-linkedin" style="color: DodgerBlue; font-weight: bold;"></i></a>
                 </div>
                 <p style="color: black;">{{post.writer_summary}}</p>
               </div>
@@ -291,19 +282,7 @@
                   {% endfor %}
                 </ul>
               </div><!-- End sidebar categories-->
-              
-              <h3 class="sidebar-title">Recent Posts</h3>
-              <div class="sidebar-item recent-posts">
               {% latestpost %}
-              {% for post in posts %}
-                <div class="post-item clearfix">
-                    <img src="{{post.image.url}}" alt="">
-                    <h4><a href="/blog/{{post.id}}">{{post.title}}</a></h4>
-                    <time datetime="2020-01-01">{{ post.published_date|date:"D / d / M / Y"}}</time>
-                </div>
-              </div><!-- End sidebar recent posts-->
-              {%endfor%}
-            </div><!-- End sidebar -->
 
           </div><!-- End blog sidebar -->
 

@@ -1,0 +1,56 @@
+{% load static %}
+<h3 class="sidebar-title">Post Categories</h3>
+<div class="sidebar-item categories">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col" class="category-header">Category</th>
+        <th scope="col" class="category-header">Count</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for name, count in categries.items %}
+      <tr>
+        <td>
+          <a href="{% url 'weblog:category' name%}" class="color:DodgerBlue">{{ name }}</a>
+        </td>
+        <td class="text-right">
+          {{ count }}
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div><!-- End sidebar categories-->
+
+<!-- Add this CSS to style the table -->
+<style>
+  .sidebar-item.categories .table {
+    width: 100%;
+    margin-top: 15px;
+    background-color: white;
+    border-collapse: w;
+  }
+  .sidebar-item.categories .table th, .sidebar-item.categories .table td {
+    padding: 10px;
+    text-align: left;
+    border: none;
+  }
+  .sidebar-item.categories .table th.category-header {
+    font-size: 18px;
+    color: black ;
+  }
+  .sidebar-item.categories .table td.text-right {
+    text-align: right;
+    padding-right: 20px;
+    color: Gray;
+  }
+  .sidebar-item.categories .table a {
+    color: Gray;
+    text-decoration: none;
+  }
+  .sidebar-item.categories .table a:hover {
+    text-decoration: underline;
+  }
+ 
+</style>
