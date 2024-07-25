@@ -15,5 +15,11 @@ class contact(models.Model):
     class Meta:
         ordering=["-created_date","updated_date"]
         
+class Newsletter(models.Model):
+    email=models.EmailField()
+    
+    def __str__(self):
+        return self.email
+        
     
 

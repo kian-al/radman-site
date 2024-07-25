@@ -25,7 +25,7 @@
   </script>
   <style>
       #clock {
-          color: white;
+          color: black;
           font-family: Arial, sans-serif;
           font-weight: bold;
       }
@@ -98,7 +98,7 @@
           <div class="carousel-container">
             <div class="container">
               <h2 class="animate__animated animate__fadeInDown">Welcome to <span>Sailor</span></h2>
-              <h1><span id="clock">{{ clock }}</span></h1>
+             
               <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
               <a href="{% url 'blog:about' %}" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
             </div>
@@ -143,11 +143,14 @@
   <main id="main">
 
     <!-- ======= About Section ======= -->
+    <div class="center-content">
+      
     <section id="about" class="about">
       <div class="container">
 
         <div class="row content">
           <div class="col-lg-6">
+            <h1><span id="clock">{{ clock }}</span></h1>
             <h2>Eum ipsam laborum deleniti velitena</h2>
             <h3>Voluptatem dignissimos provident quasi corporis voluptates sit assum perenda sruen jonee trave</h3>
           </div>
@@ -424,25 +427,26 @@
             </ul>
           </div>
           <div class="col-lg-4 col-md-6 footer-newsletter">
-            <h4>Our Newsletter</h4>
-            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
-            <form action="" method="post">
+            <h4 align='rtl'>اطلاع از اخرین اخبار</h4>
+            <p align='rtl'>اگر مایل به همکاری با ما دارین یا اگر میخواهید از اخرین اخبار ما باخبر شوید ایمیل خود را با ما به اشتکراک بگذارید</p>
+            <form action="{% url 'blog:newsletter' %}" method="post">
+              {% csrf_token %}
               <input type="email" name="email"><input type="submit" value="Subscribe">
             </form>
+
           </div>
         </div>
       </div>
     </div>
     <div class="container">
-      <div class="copyright">
-        &copy; Copyright <strong><span>Sailor</span></strong>. All Rights Reserved
-      </div>
+      
       <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/sailor-free-bootstrap-theme/ -->
-        create by <a href="https://www.linkedin.com/in/kian-almasi">Kian Almasi</a>
+        <h6>
+          <a href="https://www.linkedin.com/in/kian-almasi" style="color:white;font-weight: bold;">create by Kian Almasi</a>
+        </h6>
+        <h7 style="color:white;font-weight: bold;">
+          Linked<a href="https://www.linkedin.com/in/kian-almasi" style="color: DodgerBlue;font-weight: bold;"><i class="biu bi-linkedin" style="color: DodgerBlue; font-weight: bold;"></i></a>
+        </h7>
       </div>
     </div>
   </footer><!-- End Footer -->

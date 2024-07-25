@@ -10,6 +10,8 @@
   <meta content="" name="description">
   <meta content="" name="keywords">
 
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
   <!-- Favicons -->
   <link href="{% static '/img/new1.jpg' %}" rel="icon">
   <link href="{% static '/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
@@ -63,6 +65,7 @@
 
     </div>
   </header><!-- End Header -->
+  
 
   <main id="main">
 
@@ -77,6 +80,11 @@
             <li>Contact</li>
           </ol>
         </div>
+        {% include 'blog/messages.html' %}
+
+        {% block content %}
+      
+        {% endblock %}
 
       </div>
     </section><!-- End Breadcrumbs -->
@@ -121,9 +129,9 @@
               {% csrf_token %}
               <div class="row">
 
-                <!--
+                
                 <div class="col-md-6 form-group">
-                  <input type="text" class="form-control" name="name" id="name" placeholder="name" required>
+                  <input type="text" class="form-control" name="name" id="name" placeholder="your name" required>
                 </div>
                 <div class="col-md-6 form-group mt-3 mt-md-0">
                   <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
@@ -135,15 +143,27 @@
               <div class="form-group mt-3">
                 <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
               </div>
-              <div class="my-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
+
+              <div class="text-center">
+                <button type="submit" class="send-message-btn">Send Message</button>
               </div>
-              -->
-              {{ form.as_p }}
-              <div class="text-center"><button type="submit">Send Message</button></div>
             </form>
+            <style>
+              .send-message-btn {
+                margin-top: 15px; 
+                padding: 10px 20px; 
+                font-size: 18px; 
+                background-color: #DF3740;
+                color: white; 
+                border: none; 
+                border-radius: 5px; 
+                cursor: pointer; 
+              }
+            
+              .send-message-btn:hover {
+                background-color: 
+              }
+            </style>
 
           </div>
 
@@ -199,9 +219,10 @@
           </div>
 
           <div class="col-lg-4 col-md-6 footer-newsletter">
-            <h4>Our Newsletter</h4>
-            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
-            <form action="" method="post">
+            <h4 align='rtl'>اطلاع از اخرین اخبار</h4>
+            <p align='rtl'>اگر مایل به همکاری با ما دارین یا اگر میخواهید از اخرین اخبار ما باخبر شوید ایمیل خود را با ما به اشتکراک بگذارید</p>
+            <form action="{% url 'blog:newsletter' %}" method="post">
+              {% csrf_token %}
               <input type="email" name="email"><input type="submit" value="Subscribe">
             </form>
 
@@ -212,15 +233,14 @@
     </div>
 
     <div class="container">
-      <div class="copyright">
-        &copy; Copyright <strong><span>Sailor</span></strong>. All Rights Reserved
-      </div>
+      
       <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/sailor-free-bootstrap-theme/ -->
-        create by <a href="https://www.linkedin.com/in/kian-almasi">Kian Almasi</a>
+        <h6>
+          <a href="https://www.linkedin.com/in/kian-almasi" style="color:white;font-weight: bold;">create by Kian Almasi</a>
+        </h6>
+        <h7 style="color:white;font-weight: bold;">
+          Linked<a href="https://www.linkedin.com/in/kian-almasi" style="color: DodgerBlue;font-weight: bold;"><i class="biu bi-linkedin" style="color: DodgerBlue; font-weight: bold;"></i></a>
+        </h7>
       </div>
     </div>
   </footer><!-- End Footer -->
@@ -234,9 +254,23 @@
   <script src="{% static '/vendor/swiper/swiper-bundle.min.js' %}"></script>
   <script src="{% static '/vendor/waypoints/noframework.waypoints.js' %}"></script>
   <script src="{% static '/vendor/php-email-form/validate.js' %}"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
   <!-- Template Main JS File -->
   <script src="{% static '/js/main.js' %}"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const closeBtns = document.querySelectorAll('.close');
+      closeBtns.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          const alert = this.parentElement;
+          alert.remove();
+        });
+      });
+    });
+  </script>
 
 </body>
 
