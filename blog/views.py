@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.http import HttpResponse,HttpResponseRedirect
 from django.utils import timezone
 from blog.forms import ContactForm,NewsletterForm
@@ -18,8 +18,10 @@ def contact(request):
         if form.is_valid():
             form.save()
             messages.add_message(request,messages.SUCCESS,"پیام شما دریافت شد متخصصان ما در اسرع وقت با شما تماس میگیرند ")
+            return redirect('blog:contact') 
         else:
             messages.add_message(request,messages.ERROR,"لطفا دوباره پیام خود را ارسال کنید پیام شما به درستی ارسال نشده")
+            return redirect('blog:contact')
 
     else:
         form = ContactForm()
@@ -35,11 +37,14 @@ def NewsLetter(request):
         form=NewsletterForm(request.POST)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect('/')
+            messages.add_message(request,messages.SUCCESS,"ایمیل شما به درستی دریافت شد ")
+            return redirect('blog:home') 
         else:
-            return HttpResponseRedirect('/')
+            messages.add_message(request,messages.ERROR,"ایمیل شما به درستی ارسال نشده لطفا دوبارع ارسال کنید")
+            return redirect('blog:home') 
     else:
-        return HttpResponseRedirect('/')
+        messages.add_message(request,messages.ERROR,"ایمیل شما به درستی ارسال نشده لطفا دوبارع ارسال کنید")
+        return redirect('blog:home') 
     
     
     

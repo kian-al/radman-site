@@ -1,17 +1,17 @@
 from django import template
-from weblog.models import post
+from weblog.models import Post
 from weblog.models import Category
 from weblog.views import blog_search
 register=template.Library()
    
 @register.inclusion_tag("blog/blog-latestpost.html")
 def latestpost():
-    posts=post.objects.filter(status=1).order_by("published_date")[:5]
+    posts=Post.objects.filter(status=1).order_by("published_date")[:5]
     return {"posts": posts}
 
 @register.inclusion_tag("blog/blog-post-ctegories.html")
 def postcategories():
-    posts=post.objects.filter(status=1)
+    posts=Post.objects.filter(status=1)
     categories=Category.objects.all()
     cate_dict={}
     for name in categories:
