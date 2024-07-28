@@ -1,3 +1,4 @@
+#weblog/urls.py
 from django.urls import path 
 from weblog.views import *
 app_name='weblog'
