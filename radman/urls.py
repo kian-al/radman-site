@@ -21,9 +21,10 @@ from django.conf.urls.static import static
 from django.contrib.sitemaps.views import sitemap
 from blog.sitemaps import StaticViewSitemap
 from weblog.sitemaps import BlogSitemap
+import debug_toolbar
 
 sitemaps = {
-    'blog': StaticViewSitemap,
+    'static': StaticViewSitemap,
     'weblog' : BlogSitemap,
 }
 
@@ -33,7 +34,10 @@ urlpatterns = [
     path('blog/',include('weblog.urls')),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps},
          name='django.contrib.sitemaps.views.sitemap'),
-    path('robots.txt',include('robots.urls'))
+    path('robots.txt',include('robots.urls')),
+    path('__debug__',include(debug_toolbar.urls)),
+    path('summernote/', include('django_summernote.urls')),
+    path('captcha/', include('captcha.urls')),
 ]
 # static
 urlpatterns+=static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -8,10 +8,12 @@ from datetime import datetime, time
 def blog_view (request,**kwargs):
     posts = Post.objects.filter(status=1)
     
-    if 'cat_name' in kwargs:
+    if kwargs.get('cat_name') != None :
         posts = posts.filter(category__name=kwargs['cat_name'])
-    if 'author_username' in kwargs:
+    if kwargs.get('author_username') != None :
         posts = posts.filter(author__username=kwargs['author_username'])
+    if kwargs.get('tag_name'):
+        posts = posts.filter(tag__name__in=[kwargs['tag_name']])
         
     paginator = Paginator(posts, 5)
     page_number = request.GET.get('page')
@@ -29,7 +31,7 @@ def blog_view (request,**kwargs):
             post.published_datetime = datetime.combine(post.published_date, time.min)
         else:
             post.published_datetime = None
-
+    
     context = {'posts': posts}
     return render(request, 'blog/blog.html', context)
 

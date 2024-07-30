@@ -274,14 +274,8 @@
                 </form>
               </div><!-- End sidebar search formn-->
 
-              <h3 class="sidebar-title">Categories</h3>
-              <div class="sidebar-item categories">
-                <ul>
-                  {% for cat in category %}
-                  <li class="d-flex align-items-center"><i style="font-size:24px;color:DodgerBlue" class="fa">&#xf126;</i> <a href="{% url 'weblog:blog_single' cat.id %}">{{ cat.name }}</a></li>
-                  {% endfor %}
-                </ul>
-              </div><!-- End sidebar categories-->
+              {% postcategories %}
+              {% include "blog/blog-post-tags.html" %}
               {% latestpost %}
 
           </div><!-- End blog sidebar -->

@@ -1,0 +1,10 @@
+<h3 class="sidebar-title">Post tags</h3>
+<div class="sidebar-item tags">
+    <ul>
+        {% for tag in post.tag.all %}
+            <li><a href="{% url 'weblog:tag' tag_name=tag.name %}">{{tag.name}}</a></li>
+        {% empty %}
+            <li>No tags available.</li>
+        {% endfor %}
+    </ul>
+</div>

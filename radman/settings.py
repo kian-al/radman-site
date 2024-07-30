@@ -43,7 +43,11 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
     'django.contrib.sites',
     'django.contrib.sitemaps',
+    'captcha',
+    'django_summernote', 
     'robots',
+    'debug_toolbar',
+    'taggit',
     'django_extensions',
     'blog.apps.BlogConfig',
     'weblog.apps.WeblogConfig'
@@ -64,6 +68,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'radman.urls'
@@ -83,6 +88,42 @@ TEMPLATES = [
         },
     },
 ]
+
+#summernote config
+SUMMERNOTE_THEME = 'bs4' 
+
+SUMMERNOTE_CONFIG = {
+    # Using SummernoteWidget - iframe mode, default
+    'iframe': True,
+
+    
+
+    # You can put custom Summernote settings
+    'summernote': {
+        # As an example, using Summernote Air-mode
+        'airMode': False,
+
+        # Change editor size
+        'width': '300%',
+        'height': '500',
+
+
+
+        # Toolbar customization
+        # https://summernote.org/deep-dive/#custom-toolbar-popover
+        'toolbar': [
+            ['style', ['style']],
+            ['font', ['bold', 'underline', 'clear']],
+            ['fontname', ['fontname']],
+            ['color', ['color']],
+            ['para', ['ul', 'ol', 'paragraph']],
+            ['table', ['table']],
+            ['insert', ['link', 'picture', 'video']],
+            ['view', ['fullscreen', 'codeview', 'help']],
+        ],
+    }
+}
+#end summernote config
 
 WSGI_APPLICATION = 'radman.wsgi.application'
 
@@ -149,3 +190,9 @@ MESSAGE_TAGS = {
         messages.WARNING: 'alert-warning',
         messages.ERROR: 'alert-danger',
  }
+
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
+
+X_FRAME_OPTIONS='SAMEORIGIN'
