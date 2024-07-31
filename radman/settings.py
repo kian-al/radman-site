@@ -34,6 +34,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'multi_captcha_admin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -106,8 +107,8 @@ SUMMERNOTE_CONFIG = {
         # Change editor size
         'width': '300%',
         'height': '500',
-
-
+        
+        'lang': 'fa',
 
         # Toolbar customization
         # https://summernote.org/deep-dive/#custom-toolbar-popover
@@ -124,6 +125,15 @@ SUMMERNOTE_CONFIG = {
     }
 }
 #end summernote config
+
+
+# for  recaptcha2 admin
+MULTI_CAPTCHA_ADMIN = {
+    'engine': 'simple-captcha',
+}
+
+# end  recaptcha2 admin
+
 
 WSGI_APPLICATION = 'radman.wsgi.application'
 

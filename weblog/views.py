@@ -1,7 +1,7 @@
 #weblog/views.py
 from django.shortcuts import render,get_object_or_404
 from django.http import HttpResponse
-from weblog.models import Post
+from weblog.models import Post,Comments
 from django.core.paginator import Paginator,EmptyPage,PageNotAnInteger
 from datetime import datetime, time
 
@@ -38,7 +38,10 @@ def blog_view (request,**kwargs):
 def blog_single(request,pid):
     posts=Post.objects.filter(status=1)
     post1=get_object_or_404(posts,pk=pid,status=1)
-    context={'post':post1}
+    comments=Comments.objects.filter(post=post1.id)
+    context={'post':post1,
+             'comments':comments
+             }
     return render(request,'blog/blog-single.html',context)
 
 def blog_category(request,cat_name):

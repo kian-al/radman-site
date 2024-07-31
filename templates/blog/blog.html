@@ -1,5 +1,6 @@
 {% load static %}
 {% load blog_tags %}
+{% load custom_filters %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -105,6 +106,7 @@
                     <li class="d-flex align-items-center"><i class="bi bi-person" style="color:DodgerBlue"></i> <a href="{% url 'weblog:author' author_username=post.author.username %}">{{post.author.get_full_name}}</a></li>
                     <li class="d-flex align-items-center"><i class="bi bi-clock" style="color:DodgerBlue"></i> <a href="{% url 'weblog:blog_single' pid=post.id%}">{{ post.published_date|date:"D / d / M / Y"}}</a></li>
                     <li class="d-flex align-items-center"><i class="bi bi-chat-dots" style="color:DodgerBlue"></i> <a href="{% url 'weblog:blog_single' pid=post.id%}">{{post.counted_view}}</a></li>
+                    <li class="d-flex align-items-center"><i class="bi bi-chat-dots" style="color:DodgerBlue"></i> <a href="{% url 'weblog:blog_single' pid=post.id%}">{%comments_count post.id%} Comments</a></li>
                     {% for cat in post.category.all %}
                     <li class="d-flex align-items-center"><i style="font-size:24px;color:DodgerBlue" class="fa">&#xf126;</i> <a href="{% url 'weblog:category' cat.name%}">{{ cat.name }}</a></li>
                     {% endfor %}  
@@ -113,9 +115,9 @@
             </div>
             
             
-                      
+                      <!--truncatechars:250-->
               <div class="entry-content">
-                <p align='rtl'>{{post.content|truncatechars:250}}</p>
+                <p align='rtl'>{{post.content|clean_html|safe|truncatechars:250}}</p>
                 <div class="read-more">
                   <a href="{% url 'weblog:blog_single' pid=post.id%}">Read More</a>
                 </div>

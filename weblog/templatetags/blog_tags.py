@@ -1,5 +1,5 @@
 from django import template
-from weblog.models import Post
+from weblog.models import Post,Comments
 from weblog.models import Category
 from weblog.views import blog_search
 register=template.Library()
@@ -17,4 +17,8 @@ def postcategories():
     for name in categories:
        cate_dict[name]=posts.filter(category=name).count()
     return {"categries":cate_dict}
-
+@register.simple_tag(name="comments_count")
+def comments_count(pid):
+    return Comments.objects.filter(post=pid,approved=True).count()
+    
+    
