@@ -22,6 +22,7 @@ from django.contrib.sitemaps.views import sitemap
 from blog.sitemaps import StaticViewSitemap
 from weblog.sitemaps import BlogSitemap
 import debug_toolbar
+from django.conf.urls.i18n import i18n_patterns
 
 sitemaps = {
     'static': StaticViewSitemap,
@@ -42,3 +43,6 @@ urlpatterns = [
 # static
 urlpatterns+=static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 urlpatterns+=static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
+

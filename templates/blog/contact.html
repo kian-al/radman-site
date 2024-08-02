@@ -1,6 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fa">
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -40,21 +40,21 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a href="{% url 'blog:home' %}" class="active">Home</a></li>
+          <li><a href="{% url 'blog:home' %}" class="active">صفحه اصلی</a></li>
 
-          <li class="dropdown"><a href="#"><span>About</span> <i class="bi bi-chevron-down"></i></a>
+          <li class="dropdown"><a href="#"><span>درباره رادمان</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="{% url 'blog:about' %}">About</a></li>
-              <li><a href="{% url 'blog:team' %}">Team</a></li>
-              <li><a href="{% url 'blog:testimonials' %}">Testimonials</a></li>
+              <li><a href="{% url 'blog:about' %}">درباره ما</a></li>
+              <li><a href="{% url 'blog:team' %}">تیم ما</a></li>
+              <li><a href="{% url 'blog:testimonials' %}">گواهینامه ها</a></li>
             </ul>
           </li>
-          <li><a href="{% url 'blog:services' %}">Services</a></li>
-          <li><a href="{% url 'blog:portfolio' %}">Portfolio</a></li>
-          <li><a href="{% url 'weblog:blog_view' %}">Blog</a></li>
+          <li><a href="{% url 'blog:services' %}">خدمات</a></li>
+          <li><a href="{% url 'blog:portfolio' %}">پروژه ها</a></li>
+          <li><a href="{% url 'weblog:blog_view' %}">وبلاگ</a></li>
 
-          <li><a href="{% url 'blog:contact' %}">Contact</a></li>
-          <li><a href="{% url 'blog:home' %}" class="getstarted">Get Started</a></li>
+          <li><a href="{% url 'blog:contact' %}">ارتباط با ما</a></li>
+          <li><a href="{% url 'blog:home' %}" class="getstarted">شروع</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -69,11 +69,11 @@
     <section id="breadcrumbs" class="breadcrumbs">
       <div class="container">
 
-        <div class="d-flex justify-content-between align-items-center">
-          <h2>Contact</h2>
+        <div class="d-flex justify-content-between align-items-center" style="direction: rtl; text-align: right;">
+          <h2>ارتباط با ما</h2>
           <ol>
-            <li><a href="{% url 'blog:home' %}">Home</a></li>
-            <li>Contact</li>
+            <li><a href="{% url 'blog:home' %}">صفحه اصلی</a></li>
+            <li>ارتباط با ما</li>
           </ol>
         </div>
 
@@ -99,19 +99,19 @@
             <div class="info">
               <div class="address">
                 <i class="bi bi-geo-alt"></i>
-                <h4>Location:</h4>
+                <h4>آدرس ما:</h4>
                 <p>A108 Adam Street, New York, NY 535022</p>
               </div>
 
               <div class="email">
                 <i class="bi bi-envelope"></i>
-                <h4>Email:</h4>
+                <h4>ایمیل ما:</h4>
                 <p>info@example.com</p>
               </div>
 
               <div class="phone">
                 <i class="bi bi-phone"></i>
-                <h4>Call:</h4>
+                <h4>شماره تماس:</h4>
                 <p>+1 5589 55488 55s</p>
               </div>
 
@@ -173,78 +173,72 @@
 
   </main><!-- End #main -->
 
-  <!-- ======= Footer ======= -->
-  <footer id="footer">
-    <div class="footer-top">
-      <div class="container">
-        <div class="row">
-
-          <div class="col-lg-3 col-md-6">
-            <div class="footer-info">
-              <h3>Sailor</h3>
-              <p>
-                A108 Adam Street <br>
-                NY 535022, USA<br><br>
-                <strong>Phone:</strong> +1 5589 55488 55<br>
-                <strong>Email:</strong> info@example.com<br>
-              </p>
-              <div class="social-links mt-3">
-                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-                <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-                <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-              </div>
+<!-- ======= Footer ======= -->
+<footer id="footer">
+  <div class="footer-top">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3 col-md-6">
+          <div class="footer-info">
+            <h3>شرکت رادمان گستر</h3>
+            <p>
+              A108 Adam Street <br>
+              NY 535022, USA<br><br>
+              <strong dir='ltr'> شماره تماس:</strong> +1 5589 55488 55<br>
+              <strong dir='ltr'>ایمیل:</strong> info@example.com<br>
+            </p>
+            <div class="social-links mt-3">
+              <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+              <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+              <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+              <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+              <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
             </div>
           </div>
-
-          <div class="col-lg-2 col-md-6 footer-links">
-            <h4>Useful Links</h4>
+        </div>
+        <div class="col-lg-2 col-md-6 footer-links">
+          <h4>لینک های پر کاربرد</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'blog:home' %}">Home</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'blog:about' %}">About</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'blog:services' %}">Services</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'blog:team' %}">Terms</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'blog:testimonials' %}">Testimonials</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'blog:home' %}">صفحه اصلی</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'blog:about' %}">درباره ما</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'blog:services' %}">خدمات ما</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'blog:team' %}">تیم ما</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'blog:testimonials' %}">گواهینامه ها</a></li>
             </ul>
           </div>
           <div class="col-lg-3 col-md-6 footer-links">
             <h4> </h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'blog:portfolio' %}">Portfolio</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'weblog:blog_view' %}">Blog</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'blog:contact' %}">Contact</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'blog:portfolio' %}">پروژه ها</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'weblog:blog_view' %}">وبلاگ</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'blog:contact' %}">ارتباط با ما</a></li>
             </ul>
-          </div>
-
-          <div class="col-lg-4 col-md-6 footer-newsletter">
-            <h4 align='rtl'>اطلاع از اخرین اخبار</h4>
-            <p align='rtl'>اگر مایل به همکاری با ما دارین یا اگر میخواهید از اخرین اخبار ما باخبر شوید ایمیل خود را با ما به اشتکراک بگذارید</p>
-            <form action="{% url 'blog:newsletter' %}" method="post">
-              {% csrf_token %}
-              <input type="email" name="email"><input type="submit" value="Subscribe">
-            </form>
-
-          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 footer-newsletter">
+          <h4 align='rtl'>اطلاع از اخرین اخبار</h4>
+          <p align='rtl'>اگر مایل به همکاری با ما هستید یا اگر میخواهید از اخرین اخبار ما باخبر شوید ایمیل خود را با ما به اشتراک بگذارید</p>
+          <form action="{% url 'blog:newsletter' %}" method="post">
+            {% csrf_token %}
+            <input type="email" name="email"><input type="submit" value="Subscribe">
+          </form>
 
         </div>
       </div>
     </div>
-
-    <div class="container">
-      
-      <div class="credits">
-        <h6>
-          <a href="https://www.linkedin.com/in/kian-almasi" style="color:white;font-weight: bold;">create by Kian Almasi</a>
-        </h6>
-        <h7 style="color:white;font-weight: bold;">
-          Linked<a href="https://www.linkedin.com/in/kian-almasi" style="color: DodgerBlue;font-weight: bold;"><i class="biu bi-linkedin" style="color: DodgerBlue; font-weight: bold;"></i></a>
-        </h7>
+  </div>
+  <div class="container">
+    
+    <div class="credits">
+      <div>
+        <a href="https://www.linkedin.com/in/kian-almasi" style="color:white;font-weight: smale;"><smale>create by Kian Almasi</smale></a>
       </div>
+      <div style="color:white;font-weight: smale;">
+        Linked<a href="https://www.linkedin.com/in/kian-almasi" style="color: DodgerBlue;font-weight: bold;"><i class="biu bi-linkedin" style="color: DodgerBlue; font-weight: bold;"></i></a>
+      </div>
+      <div style="color:white;font-weight: smale;"> @اطلاعات شما توسط شرکت رادمان محفوظ میباشد</div>
     </div>
-  </footer><!-- End Footer -->
-
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  </div>
+</footer><!-- End Footer -->
 
   <!-- Vendor JS Files -->
   <script src="{% static '/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>

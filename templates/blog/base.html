@@ -1,12 +1,12 @@
 {% load static%}
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="fa">
+<!--base.html-->
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>رادمان گستر</title>
+  <title> رادمان گستر</title>
   <script>
     function updateClock(initialTime) {
         var now = new Date(initialTime);
@@ -66,21 +66,21 @@ s      }
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a href="{% url 'blog:home' %}" class="active">Home</a></li>
+          <li><a href="{% url 'blog:home' %}" class="active">صفحه اصلی</a></li>
 
-          <li class="dropdown"><a href="#"><span>About</span> <i class="bi bi-chevron-down"></i></a>
+          <li class="dropdown"><a href="#"><span>درباره رادمان</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="{% url 'blog:about' %}">About</a></li>
-              <li><a href="{% url 'blog:team' %}">Team</a></li>
-              <li><a href="{% url 'blog:testimonials' %}">Testimonials</a></li>
+              <li><a href="{% url 'blog:about' %}">درباره ما</a></li>
+              <li><a href="{% url 'blog:team' %}">تیم ما</a></li>
+              <li><a href="{% url 'blog:testimonials' %}">گواهینامه ها</a></li>
             </ul>
           </li>
-          <li><a href="{% url 'blog:services' %}">Services</a></li>
-          <li><a href="{% url 'blog:portfolio' %}">Portfolio</a></li>
-          <li><a href="{% url 'weblog:blog_view' %}">Blog</a></li>
+          <li><a href="{% url 'blog:services' %}">خدمات</a></li>
+          <li><a href="{% url 'blog:portfolio' %}">پروژه ها</a></li>
+          <li><a href="{% url 'weblog:blog_view' %}">وبلاگ</a></li>
 
-          <li><a href="{% url 'blog:contact' %}">Contact</a></li>
-          <li><a href="{% url 'blog:home' %}" class="getstarted">Get Started</a></li>
+          <li><a href="{% url 'blog:contact' %}">ارتباط با ما</a></li>
+          <li><a href="{% url 'blog:home' %}" class="getstarted">شروع</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
         {% include 'blog/messages.html' %}
@@ -105,10 +105,10 @@ s      }
         <div class="carousel-item active" style="background-image: url({% static 'img/slide/p1.jpg' %})">
           <div class="carousel-container">
             <div class="container">
-              <h2 class="animate__animated animate__fadeInDown">Welcome to <span>Sailor</span></h2>
+              <h2 class="animate__animated animate__fadeInDown">خوش آمدید به  <span>وبسایت رسمی شرکت رادمان</span></h2>
              
               <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
-              <a href="{% url 'blog:about' %}" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
+              <a href="{% url 'blog:about' %}" class="btn-get-started animate__animated animate__fadeInUp scrollto">بیشتر بخوانید</a>
             </div>
           </div>
         </div>
@@ -117,9 +117,9 @@ s      }
         <div class="carousel-item" style="background-image: url({% static 'img/slide/p2.jpg' %})">
           <div class="carousel-container">
             <div class="container">
-              <h2 class="animate__animated animate__fadeInDown">Lorem Ipsum Dolor</h2>
+              <h2 class="animate__animated animate__fadeInDown">خوش آمدید به  <span>وبسایت رسمی شرکت رادمان</span></h2>
               <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
-              <a href="{% url 'blog:about' %}" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
+              <a href="{% url 'blog:about' %}" class="btn-get-started animate__animated animate__fadeInUp scrollto">بیشتر بخوانید</a>
             </div>
           </div>
         </div>
@@ -128,9 +128,9 @@ s      }
         <div class="carousel-item" style="background-image: url({% static 'img/slide/p3.jpg' %})">
           <div class="carousel-container">
             <div class="container">
-              <h2 class="animate__animated animate__fadeInDown">Sequi ea ut et est quaerat</h2>
+              <h2 class="animate__animated animate__fadeInDown">خوش آمدید به  <span>وبسایت رسمی شرکت رادمان</span></h2>
               <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
-              <a href="{% url 'blog:about' %}" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
+              <a href="{% url 'blog:about' %}" class="btn-get-started animate__animated animate__fadeInUp scrollto">بیشتر بخوانید</a>
             </div>
           </div>
         </div>
@@ -264,10 +264,10 @@ s      }
         <div class="row">
           <div class="col-lg-12 d-flex justify-content-center">
             <ul id="portfolio-flters">
-              <li data-filter="*" class="filter-active">All</li>
-              <li data-filter=".filter-camera">camera</li><!--filter-app-->
-              <li data-filter=".filter-network">network</li><!--filter-card-->
-              <li data-filter=".filter-Tower">Tower</li><!--filter-web-->
+              <li data-filter="*" class="filter-active">همه</li>
+              <li data-filter=".filter-camera">دوربین</li><!--filter-app-->
+              <li data-filter=".filter-network">شبکه</li><!--filter-card-->
+              <li data-filter=".filter-Tower">دکل</li><!--filter-web-->
             </ul>
           </div>
         </div>
@@ -400,12 +400,12 @@ s      }
         <div class="row">
           <div class="col-lg-3 col-md-6">
             <div class="footer-info">
-              <h3>Sailor</h3>
+              <h3>شرکت رادمان گستر</h3>
               <p>
                 A108 Adam Street <br>
                 NY 535022, USA<br><br>
-                <strong>Phone:</strong> +1 5589 55488 55<br>
-                <strong>Email:</strong> info@example.com<br>
+                <strong dir='ltr'> شماره تماس:</strong> +1 5589 55488 55<br>
+                <strong dir='ltr'>ایمیل:</strong> info@example.com<br>
               </p>
               <div class="social-links mt-3">
                 <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
@@ -417,26 +417,26 @@ s      }
             </div>
           </div>
           <div class="col-lg-2 col-md-6 footer-links">
-            <h4>Useful Links</h4>
+            <h4>لینک های پر کاربرد</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'blog:home' %}">Home</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'blog:about' %}">About</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'blog:services' %}">Services</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'blog:team' %}">Terms</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'blog:testimonials' %}">Testimonials</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'blog:home' %}">صفحه اصلی</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'blog:about' %}">درباره ما</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'blog:services' %}">خدمات ما</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'blog:team' %}">تیم ما</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'blog:testimonials' %}">گواهینامه ها</a></li>
             </ul>
           </div>
           <div class="col-lg-3 col-md-6 footer-links">
             <h4> </h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'blog:portfolio' %}">Portfolio</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'weblog:blog_view' %}">Blog</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'blog:contact' %}">Contact</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'blog:portfolio' %}">پروژه ها</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'weblog:blog_view' %}">وبلاگ</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'blog:contact' %}">ارتباط با ما</a></li>
             </ul>
           </div>
           <div class="col-lg-4 col-md-6 footer-newsletter">
             <h4 align='rtl'>اطلاع از اخرین اخبار</h4>
-            <p align='rtl'>اگر مایل به همکاری با ما دارین یا اگر میخواهید از اخرین اخبار ما باخبر شوید ایمیل خود را با ما به اشتکراک بگذارید</p>
+            <p align='rtl'>اگر مایل به همکاری با ما هستید یا اگر میخواهید از اخرین اخبار ما باخبر شوید ایمیل خود را با ما به اشتراک بگذارید</p>
             <form action="{% url 'blog:newsletter' %}" method="post">
               {% csrf_token %}
               <input type="email" name="email"><input type="submit" value="Subscribe">
@@ -449,16 +449,16 @@ s      }
     <div class="container">
       
       <div class="credits">
-        <h6>
-          <a href="https://www.linkedin.com/in/kian-almasi" style="color:white;font-weight: bold;">create by Kian Almasi</a>
-        </h6>
-        <h7 style="color:white;font-weight: bold;">
+        <div>
+          <a href="https://www.linkedin.com/in/kian-almasi" style="color:white;font-weight: smale;"><smale>create by Kian Almasi</smale></a>
+        </div>
+        <div style="color:white;font-weight: smale;">
           Linked<a href="https://www.linkedin.com/in/kian-almasi" style="color: DodgerBlue;font-weight: bold;"><i class="biu bi-linkedin" style="color: DodgerBlue; font-weight: bold;"></i></a>
-        </h7>
+        </div>
+        <div style="color:white;font-weight: smale;"> @اطلاعات شما توسط شرکت رادمان محفوظ میباشد</div>
       </div>
     </div>
   </footer><!-- End Footer -->
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
   <!-- Vendor JS Files -->
   <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
   <script src="{% static 'vendor/glightbox/js/glightbox.min.js' %}"></script>
