@@ -85,6 +85,11 @@
         </div>
 
       </div>
+      {% include 'blog/messages.html' %}
+
+      {% block content %}
+    
+      {% endblock %}
     </section><!-- End Breadcrumbs -->
 
     <!-- ======= Blog Single Section ======= -->
@@ -143,12 +148,13 @@
             <div class="blog-comments">
               <h4>{{comments|length}} Comments</h4>
               {% for comment in comments %}
+              
               <div id="comment" class="comment">
                 <div class="d-flex">
                   <div class="comment-img"><img src="{% static '/img/blog/comments-6.jpg' %}" alt=""></div>
                   <div>
                     <h5><a href="">{{comment.name}}</a> <a href="#" class="reply"><i class="bi bi-reply-fill"></i> Reply</a></h5>
-                    <time datetime="2020-01-01">{{comment.created_date|naturalday}}</time>
+                    <time datetime="{{ post.published_date|date:'D / d / M / Y' }}">{{ post.published_date|naturaltime }}</time>
                     <p>{{comment.message}}</p>
                   </div>
                 </div>
@@ -158,24 +164,36 @@
               {%endfor%}
               <div class="comments-area">
                 <div id="disqus_thread"></div>
-                  <script>
-                      /**
-                      *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-                      *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
-                      /*
-                      var disqus_config = function () {
-                      this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-                      this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-                      };
-                      */
-                      (function() { // DON'T EDIT BELOW THIS LINE
-                      var d = document, s = d.createElement('script');
-                      s.src = 'https://127-0-0-1-8000-wmhxprf1wa.disqus.com/embed.js';
-                      s.setAttribute('data-timestamp', +new Date());
-                      (d.head || d.body).appendChild(s);
-                      })();
-                  </script>
-                  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                  
+              <div class="reply-form">
+                <h4>Leave a Reply</h4>
+                <p>Your email address will not be published. Required fields are marked * </p>
+                <form method="post" action="{% url 'weblog:blog_single' pid=post.id %}" >
+                  {%csrf_token%}
+                  <input type="hidden" name="post" value={{post.id}}>
+                  <div class="row">
+                    <div class="col-md-6 form-group">
+                      <input name="name" type="text" class="form-control" placeholder="Your Name*">
+                    </div>
+                    <div class="col-md-6 form-group">
+                      <input name="email" type="text" class="form-control" placeholder="Your Email*">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col form-group">
+                      <input name="subject" type="text" class="form-control" placeholder="Your subject">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col form-group">
+                      <textarea name="message" class="form-control" placeholder="Your Comment*"></textarea>
+                    </div>
+                  </div>
+                  <button type="submit" class="btn btn-primary" >Post Comment</button>
+          
+                </form>
+          
+              </div>
               </div>
             </div>
           <!-- end of comments block -->
@@ -283,6 +301,17 @@
 
   <!-- Template Main JS File -->
   <script src="{% static '/js/main.js' %}"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const closeBtns = document.querySelectorAll('.close');
+      closeBtns.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          const alert = this.parentElement;
+          alert.remove();
+        });
+      });
+    });
+  </script>
 
 </body>
 

@@ -2,8 +2,10 @@
 from django.shortcuts import render,get_object_or_404
 from django.http import HttpResponse
 from weblog.models import Post,Comments
+from weblog.forms import CommentForm
 from django.core.paginator import Paginator,EmptyPage,PageNotAnInteger
 from datetime import datetime, time
+from django.contrib import messages
 
 def blog_view (request,**kwargs):
     posts = Post.objects.filter(status=1)
@@ -36,12 +38,22 @@ def blog_view (request,**kwargs):
     return render(request, 'blog/blog.html', context)
 
 def blog_single(request,pid):
+    if request.method=='POST':
+        form=CommentForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.add_message(request,messages.SUCCESS,"کامنت شما به درستی ایجاد شد")
+        else:
+            messages.add_message(request,messages.SUCCESS,"کامنت شما به درستی ایجاد نشد")
+         
     posts=Post.objects.filter(status=1)
     post1=get_object_or_404(posts,pk=pid,status=1)
-    comments=Comments.objects.filter(post=post1.id)
+    comments=Comments.objects.filter(post=post1.id,approved=1)
+    form=CommentForm()
     context={'post':post1,
-             'comments':comments
-             }
+            'comments':comments,
+            'form':form
+            }
     return render(request,'blog/blog-single.html',context)
 
 def blog_category(request,cat_name):
