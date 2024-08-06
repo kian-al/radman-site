@@ -208,3 +208,10 @@ INTERNAL_IPS = [
 X_FRAME_OPTIONS='SAMEORIGIN'
 
 LOCALE_PATHS=[ os.path.join(BASE_DIR,'local')]
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+        'LOCATION': 'unique-snowflake',
+    }
+}

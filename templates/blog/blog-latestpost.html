@@ -7,7 +7,7 @@
         <img src="{{ post.image.url }}" alt="">
         <h4><a href="/blog/{{ post.id }}">{{ post.title }}</a></h4>
         <time datetime="{{ post.published_date|date:'Y-m-d' }}">{{ post.published_date|date:"D / d / M / Y" }}</time>
-        <time datetime="{{ post.published_date|date:'Y-m-d' }}">{{ post.published_date|naturaltime }}</time>
+        <time dir="rtl" datetime="{{ post.published_date|date:'Y-m-d' }}">{{ post.published_date|naturaltime }}</time>
     </div>
     {% endfor %}
 </div>

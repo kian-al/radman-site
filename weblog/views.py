@@ -1,6 +1,7 @@
 #weblog/views.py
-from django.shortcuts import render,get_object_or_404
+from django.shortcuts import render,get_object_or_404,redirect
 from django.http import HttpResponse
+from django.core.cache import cache
 from weblog.models import Post,Comments
 from weblog.forms import CommentForm
 from django.core.paginator import Paginator,EmptyPage,PageNotAnInteger
@@ -38,18 +39,35 @@ def blog_view (request,**kwargs):
     return render(request, 'blog/blog.html', context)
 
 def blog_single(request,pid):
-    if request.method=='POST':
-        form=CommentForm(request.POST)
-        if form.is_valid():
-            form.save()
-            messages.add_message(request,messages.SUCCESS,"کامنت شما به درستی ایجاد شد")
-        else:
-            messages.add_message(request,messages.SUCCESS,"کامنت شما به درستی ایجاد نشد")
-         
     posts=Post.objects.filter(status=1)
     post1=get_object_or_404(posts,pk=pid,status=1)
-    comments=Comments.objects.filter(post=post1.id,approved=1)
-    form=CommentForm()
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            similar_comment = Comments.objects.filter(
+                post=post1,
+                name=form.cleaned_data['name'],
+                email=form.cleaned_data['email'],
+                subject=form.cleaned_data['subject'],
+                message=form.cleaned_data['message']
+            ).exists()
+            
+            if not similar_comment:
+                form.save()
+                messages.add_message(request, messages.SUCCESS, "کامنت شما به درستی ایجاد شد")
+                return redirect('weblog:blog_single', pid=post1.id)  
+            else:
+                messages.add_message(request, messages.WARNING, "کامنت مشابهی قبلاً ثبت شده است.")
+        else:
+            messages.add_message(request, messages.ERROR, "کامنت شما به درستی ایجاد نشد")
+         
+    
+    cache_key = f"comments_{post1.id}"
+    comments = cache.get(cache_key)
+    if not comments:
+        comments = Comments.objects.filter(post=post1.id, approved=1)
+        cache.set(cache_key, comments, timeout=60*15)  # کش برای 15 دقیقه
+    form = CommentForm()
     context={'post':post1,
             'comments':comments,
             'form':form

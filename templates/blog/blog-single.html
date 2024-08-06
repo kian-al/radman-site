@@ -113,7 +113,7 @@
               <div class="entry-meta">
                 <ul>
                   <li class="d-flex align-items-center"><i class="bi bi-person" style="color:DodgerBlue"></i> <a href="{% url 'weblog:author' author_username=post.author.username %}">{{post.author.get_full_name}}</a></li>
-                  <li class="d-flex align-items-center"><i class="bi bi-clock" style="color:DodgerBlue"></i> <a href="{% url 'weblog:blog_single' pid=post.id%}"><time datetime="2020-01-01">{{post.published_date|date:"D / d / M / Y"}}</time></a></li>
+                  <li class="d-flex align-items-center"><i class="bi bi-clock" style="color:DodgerBlue"></i> <a href="{% url 'weblog:blog_single' pid=post.id%}"><time datetime="{{ post.published_date|date:"D / d / M / Y"}}" dir="rtl">{{post.published_date|naturaltime}}</time></a></li>
                   <li class="d-flex align-items-center"><i class="bi bi-chat-dots" style="color:DodgerBlue"></i> <a href="{% url 'weblog:blog_single' pid=post.id%}">{{comments|length}} Comments</a></li>
                 </ul>
               </div>
@@ -154,7 +154,7 @@
                   <div class="comment-img"><img src="{% static '/img/blog/comments-6.jpg' %}" alt=""></div>
                   <div>
                     <h5><a href="">{{comment.name}}</a> <a href="#" class="reply"><i class="bi bi-reply-fill"></i> Reply</a></h5>
-                    <time datetime="{{ post.published_date|date:'D / d / M / Y' }}">{{ post.published_date|naturaltime }}</time>
+                    <li class="d-flex align-items-center"><i class="bi bi-clock" style="color:DodgerBlue"></i> <a href="{% url 'weblog:blog_single' pid=post.id%}"><time dir="rtl" datetime="{{ comment.created_date|date:"D / d / M / Y"  }}" >{{ comment.created_date|naturaltime }}</time></a></li>
                     <p>{{comment.message}}</p>
                   </div>
                 </div>
@@ -166,8 +166,7 @@
                 <div id="disqus_thread"></div>
                   
               <div class="reply-form">
-                <h4>Leave a Reply</h4>
-                <p>Your email address will not be published. Required fields are marked * </p>
+                <h4>Leave a comment</h4>
                 <form method="post" action="{% url 'weblog:blog_single' pid=post.id %}" >
                   {%csrf_token%}
                   <input type="hidden" name="post" value={{post.id}}>
@@ -189,10 +188,14 @@
                       <textarea name="message" class="form-control" placeholder="Your Comment*"></textarea>
                     </div>
                   </div>
+                  <div class="row">
+                    <div class="col form-group">
+                      {{form.captcha}}
+                    </div>
+                  </div>
                   <button type="submit" class="btn btn-primary" >Post Comment</button>
           
                 </form>
-          
               </div>
               </div>
             </div>

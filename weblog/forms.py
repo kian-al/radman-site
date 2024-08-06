@@ -3,8 +3,8 @@ from weblog.models import Comments
 from captcha.fields import CaptchaField
 
 class CommentForm(forms.ModelForm): 
-    #captcha = CaptchaField()
+    captcha = CaptchaField()
     class Meta:
         model = Comments
-        fields = ['post','name','email','subject','message']
+        fields = ['post','name','email','subject','message', 'captcha']
         

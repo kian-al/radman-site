@@ -104,7 +104,7 @@
               <div class="entry-meta">
                 <ul>
                     <li class="d-flex align-items-center"><i class="bi bi-person" style="color:DodgerBlue"></i> <a href="{% url 'weblog:author' author_username=post.author.username %}">{{post.author.get_full_name}}</a></li>
-                    <li class="d-flex align-items-center"><i class="bi bi-clock" style="color:DodgerBlue"></i> <a href="{% url 'weblog:blog_single' pid=post.id%}">{{ post.published_date|date:"D / d / M / Y"}}</a></li>
+                    <li class="d-flex align-items-center"><i class="bi bi-clock" style="color:DodgerBlue"></i> <a href="{% url 'weblog:blog_single' pid=post.id%}">{{ post.published_date|naturaltime}}</a></li>
                     <li class="d-flex align-items-center"><i class="bi bi-chat-dots" style="color:DodgerBlue"></i> <a href="{% url 'weblog:blog_single' pid=post.id%}">{{post.counted_view}}</a></li>
                     <li class="d-flex align-items-center"><i class="bi bi-chat-dots" style="color:DodgerBlue"></i> <a href="{% url 'weblog:blog_single' pid=post.id%}">{%comments_count post.id%} Comments</a></li>
                     {% for cat in post.category.all %}
