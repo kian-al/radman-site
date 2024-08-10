@@ -14,12 +14,18 @@ class contact(models.Model):
     
     class Meta:
         ordering=["-created_date","updated_date"]
+        verbose_name="درخواست مورد نظر"
+        verbose_name_plural="پیام های ارتباط با ما"
         
 class Newsletter(models.Model):
     email=models.EmailField()
     
     def __str__(self):
         return self.email
+    
+    class Meta:
+        verbose_name="ایمیل مورد نظر"
+        verbose_name_plural="ایمیل های اخرین اخبارها"
         
     
 

@@ -7,6 +7,16 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   <title> رادمان گستر</title>
+  <style>
+    #clock {
+      color: #4682B4;
+      font-size: 40px;
+      font-family: Orbitron;
+      letter-spacing: 7px;
+       
+    }
+  </style>
+
   <script>
     function updateClock(initialTime) {
         var now = new Date(initialTime);
@@ -23,14 +33,6 @@
         }, 1000);
     }
   </script>
-  <style>
-      #clock {
-          color: white;
-          background:black;
-          font-family: Arial, sans-serif;
-          font-weight: bold;
-      }
-  </style>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -159,8 +161,9 @@
         <div class="row content">
           <div class="col-lg-6">
             <h1><span id="clock" >{{ clock }}</span></h1>
-            <h2>Eum ipsam laborum deleniti velitena</h2>
-            <h3>Voluptatem dignissimos provident quasi corporis voluptates sit assum perenda sruen jonee trave</h3>
+            <h3><div id="typed-text">درباره ما</div></h3>
+            <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+            <h3>شرکت رادمان گستر عصر دانش در سال ۱۳۹۳</h3>
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0">
             <p>
@@ -435,8 +438,8 @@
             </ul>
           </div>
           <div class="col-lg-4 col-md-6 footer-newsletter">
-            <h4 align='rtl'>اطلاع از اخرین اخبار</h4>
-            <p align='rtl'>اگر مایل به همکاری با ما هستید یا اگر میخواهید از اخرین اخبار ما باخبر شوید ایمیل خود را با ما به اشتراک بگذارید</p>
+            <h4 dir='rtl'>اطلاع از اخرین اخبار</h4>
+            <p dir='rtl'>اگر مایل به همکاری با ما هستید یا اگر میخواهید از اخرین اخبار ما باخبر شوید ایمیل خود را با ما به اشتراک بگذارید</p>
             <form action="{% url 'blog:newsletter' %}" method="post">
               {% csrf_token %}
               <input type="email" name="email"><input type="submit" value="Subscribe">
@@ -474,6 +477,7 @@
 
   <!-- Template Main JS File -->
   <script src="{% static '/js/main.js' %}"></script>
+  <!-- for close the message -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       const closeBtns = document.querySelectorAll('.close');
@@ -485,5 +489,16 @@
       });
     });
   </script>
+  <!-- for type text -->
+  <script>
+    var typed = new Typed('#typed-text', {
+      strings: ["درباره ما"],
+      typeSpeed: 1,     
+      loop: false,        
+      showCursor: false,  
+      backSpeed: 300,       
+      smartBackspace: false,  
+    });
+  </script> 
 </body>
 </html>
