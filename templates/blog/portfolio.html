@@ -1,4 +1,6 @@
 {% load static %}
+{% load custom_filters %}
+
 <!DOCTYPE html>
 <html lang="fa">
 
@@ -84,137 +86,47 @@
     <!-- ======= Portfolio Section ======= -->
     <section id="portfolio" class="portfolio">
       <div class="container">
-        <div class="row">
-          <div class="col-lg-12 d-flex justify-content-center">
-            <ul id="portfolio-flters">
-              <li data-filter="*" class="filter-active">همه</li>
-              <li data-filter=".filter-camera">دوربین ها</li><!--filter-app-->
-              <li data-filter=".filter-network">شبکه</li><!--filter-card-->
-              <li data-filter=".filter-Tower">دکل</li><!--filter-web-->
-            </ul>
-          </div>
-        </div>
-        <div class="row portfolio-container">
-          <div class="col-lg-4 col-md-6 portfolio-item filter-camera">
-            <div class="portfolio-wrap">
-              <img src="{% static 'img/portfolio/p1.jpg' %}" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>camera 1</h4>
-                <p>camera</p>
-                <div class="portfolio-links">
-                  <a href="{% static 'img/portfolio/p2.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a>
-                  <a href="{% url 'blog:portfolio_details' %}" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a>
-                </div>
+          <div class="row">
+              <div class="col-lg-12 d-flex justify-content-center">
+                  <ul id="portfolio-flters">
+                      <li data-filter="*" class="filter-active">همه</li>
+                      <li data-filter=".camera">دوربین</li>
+                      <li data-filter=".network">شبکه</li>
+                      <li data-filter=".wireless">بی سیم</li>
+                  </ul>
               </div>
-            </div>
           </div>
-          <div class="col-lg-4 col-md-6 portfolio-item filter-Tower">
-            <div class="portfolio-wrap">
-              <img src="{% static 'img/portfolio/p3.jpg' %}" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>tower 3</h4>
-                <p>tower</p>
-                <div class="portfolio-links">
-                  <a href="{% static 'img/portfolio/p4.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a>
-                  <a href="{% url 'blog:portfolio_details' %}" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a>
-                </div>
+
+          <div class="row portfolio-container">
+              {% for project in projects %}
+              {% if 'camera' in project.tag.names %}
+              <div class="col-lg-4 col-md-6 portfolio-item camera">
+              {% elif 'network' in project.tag.names %}
+              <div class="col-lg-4 col-md-6 portfolio-item network">
+              {% elif 'wireless' in project.tag.names %}
+              <div class="col-lg-4 col-md-6 portfolio-item wireless">
+              {% endif %}
+                  <div class="portfolio-wrap">
+                      <img src="{{ project.image1.url }}" class="img-fluid" alt="">
+                      <div class="portfolio-info">
+                          <h4>{{ project.title }}</h4>
+                          <p>{{ project.content|clean_html|safe|truncatechars:60 }}</p>
+                          <div class="portfolio-links">
+                              <a href="{{ project.image1.url }}" data-gallery="portfolioGallery" class="portfolio-lightbox" title=""><i class="bx bx-plus"></i></a>
+                              <a href="{% url 'blog:portfolio_details' pid=project.id %}" class="portfolio-details-lightbox" data-glightbox="type: external" title="جزئیات پروژه"><i class="bx bx-link"></i></a>
+                          </div>
+                      </div>
+                  </div>
               </div>
-            </div>
+
+              {% if forloop.counter|divisibleby:3 %}
+                  <div class="clearfix"></div>
+              {% endif %}
+              {% endfor %}
           </div>
-          <div class="col-lg-4 col-md-6 portfolio-item filter-camera">
-            <div class="portfolio-wrap">
-              <img src="{% static 'img/portfolio/p5.jpg' %}" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>camera 2</h4>
-                <p>camera</p>
-                <div class="portfolio-links">
-                  <a href="{% static 'img/portfolio/p6.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 2"><i class="bx bx-plus"></i></a>
-                  <a href="{% url 'blog:portfolio_details' %}" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 portfolio-item filter-network">
-            <div class="portfolio-wrap">
-              <img src="{% static 'img/portfolio/p7.jpg' %}" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>network 2</h4>
-                <p>network</p>
-                <div class="portfolio-links">
-                  <a href="{% static 'img/portfolio/p8.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 2"><i class="bx bx-plus"></i></a>
-                  <a href="{% url 'blog:portfolio_details' %}" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 portfolio-item filter-Tower">
-            <div class="portfolio-wrap">
-              <img src="{% static 'img/portfolio/p9.jpg' %}" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>tower 2</h4>
-                <p>tower</p>
-                <div class="portfolio-links">
-                  <a href="{% static 'img/portfolio/p10.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 2"><i class="bx bx-plus"></i></a>
-                  <a href="{% url 'blog:portfolio_details' %}" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 portfolio-item filter-camera">
-            <div class="portfolio-wrap">
-              <img src="{% static 'img/portfolio/p11.jpg' %}" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>camera 3</h4>
-                <p>camera</p>
-                <div class="portfolio-links">
-                  <a href="{% static 'img/portfolio/p12.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 3"><i class="bx bx-plus"></i></a>
-                  <a href="{% url 'blog:portfolio_details' %}" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 portfolio-item filter-network">
-            <div class="portfolio-wrap">
-              <img src="{% static 'img/portfolio/p13.jpg' %}" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>network 1</h4>
-                <p>network</p>
-                <div class="portfolio-links">
-                  <a href="{% static 'img/portfolio/p14.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 1"><i class="bx bx-plus"></i></a>
-                  <a href="{% url 'blog:portfolio_details' %}" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 portfolio-item filter-network">
-            <div class="portfolio-wrap">
-              <img src="{% static 'img/portfolio/p15.jpg' %}" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>network 3</h4>
-                <p>network</p>
-                <div class="portfolio-links">
-                  <a href="{% static 'img/portfolio/p16.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 3"><i class="bx bx-plus"></i></a>
-                  <a href="{% url 'blog:portfolio_details' %}" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 portfolio-item filter-Tower">
-            <div class="portfolio-wrap">
-              <img src="{% static 'img/portfolio/p17.jpg' %}" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>tower 1</h4>
-                <p>tower</p>
-                <div class="portfolio-links">
-                  <a href="{% static 'img/portfolio/p18.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a>
-                  <a href="{% url 'blog:portfolio_details' %}" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
-    </section><!-- End Portfolio Section -->
+    </section>
+    <!-- End Portfolio Section -->
 
   </main><!-- End #main -->
 

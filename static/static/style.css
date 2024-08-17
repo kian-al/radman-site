@@ -2117,3 +2117,13 @@ section {
 #footer .credits a:hover {
   color: white;
 }
+.portfolio-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.portfolio-item .portfolio-wrap img {
+  width: 100%;
+  height: 250px; 
+  object-fit: cover; 
+}

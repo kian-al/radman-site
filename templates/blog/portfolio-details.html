@@ -1,4 +1,7 @@
 {% load static %}
+{% load custom_filters %}
+{% load humanize %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -47,15 +50,15 @@
               <div class="swiper-wrapper align-items-center">
 
                 <div class="swiper-slide">
-                  <img src="{% static '/img/portfolio/portfolio-details-1.jpg' %}" alt="">
+                  <img src="{{project.image1.url}}" alt="">
                 </div>
 
                 <div class="swiper-slide">
-                  <img src="{% static '/img/portfolio/portfolio-details-2.jpg' %}" alt="">
+                  <img src="{{project.image2.url}}" alt="">
                 </div>
 
                 <div class="swiper-slide">
-                  <img src="{% static '/img/portfolio/portfolio-details-3.jpg' %}" alt="">
+                  <img src="{{project.image3.url}}" alt="">
                 </div>
 
               </div>
@@ -65,19 +68,19 @@
 
           <div class="col-lg-4">
             <div class="portfolio-info">
-              <h3>Project information</h3>
-              <ul>
-                <li><strong>Category</strong>: Web design</li>
-                <li><strong>Client</strong>: ASU Company</li>
-                <li><strong>Project date</strong>: 01 March, 2020</li>
-                <li><strong>Project URL</strong>: <a href="#">www.example.com</a></li>
+              <h3>{{project.title}}</h3>
+              <ul dir="rtl">
+                {% for tag in project.tag.all %}
+                <li><strong>دسته بندی</strong>: {{tag.name}}</li>
+                {% endfor %}
+                <li><strong>مشتری</strong>: {{ project.client }}</li>
+                
+                <li><strong>تاریخ پروژه</strong>: <time datetime="{{ project.published_date|date:"D / d / M / Y"}}" dir="rtl">{{project.published_date|naturaltime}}</time></li>
               </ul>
             </div>
             <div class="portfolio-description">
-              <h2>This is an example of portfolio detail</h2>
-              <p>
-                Autem ipsum nam porro corporis rerum. Quis eos dolorem eos itaque inventore commodi labore quia quia. Exercitationem repudiandae officiis neque suscipit non officia eaque itaque enim. Voluptatem officia accusantium nesciunt est omnis tempora consectetur dignissimos. Sequi nulla at esse enim cum deserunt eius.
-              </p>
+              <h2>{{project.title}}</h2>
+              <p dir='ltr'>{{project.content|clean_html|safe}}</p>
             </div>
           </div>
 

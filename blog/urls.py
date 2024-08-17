@@ -9,6 +9,6 @@ urlpatterns = [
     path('contact/',contact,name='contact'),
     path('portfolio/',portfolio,name='portfolio'),
     path('testimonials/',testimonials,name='testimonials'),
-    path('portfolio-details/',portfolio_details,name='portfolio_details'),
+    path('portfolio-details/<int:pid>/',portfolio_details,name='portfolio_details'),
     path('newsletter/',NewsLetter,name='newsletter')
 ]
