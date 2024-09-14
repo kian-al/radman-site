@@ -146,14 +146,14 @@
 
             <!-- start comments block -->
             <div class="blog-comments">
-              <h4>{{comments|length}} Comments</h4>
+              <h4>{{comments|length}} کامنت</h4>
               {% for comment in comments %}
               
               <div id="comment" class="comment">
                 <div class="d-flex">
-                  <div class="comment-img"><img src="{% static '/img/blog/comments-6.jpg' %}" alt=""></div>
+                  <div class="comment-img"><img src="{% static '/img/images.png' %}" alt=""></div>
                   <div>
-                    <h5><a href="">{{comment.name}}</a> <a href="#" class="reply"><i class="bi bi-reply-fill"></i> Reply</a></h5>
+                    <h5><a href="">{{comment.name}}</a> </h5>
                     <li class="d-flex align-items-center"><i class="bi bi-clock" style="color:DodgerBlue"></i> <a href="{% url 'weblog:blog_single' pid=post.id%}"><time dir="rtl" datetime="{{ comment.created_date|date:"D / d / M / Y"  }}" >{{ comment.created_date|naturaltime }}</time></a></li>
                     <p>{{comment.message}}</p>
                   </div>
@@ -166,26 +166,26 @@
                 <div id="disqus_thread"></div>
                   
               <div class="reply-form">
-                <h4>Leave a comment</h4>
+                <h4>کامنت خودت را بگذارید</h4>
                 <form method="post" action="{% url 'weblog:blog_single' pid=post.id %}" >
                   {%csrf_token%}
                   <input type="hidden" name="post" value={{post.id}}>
                   <div class="row">
                     <div class="col-md-6 form-group">
-                      <input name="name" type="text" class="form-control" placeholder="Your Name*">
+                      <input name="name" type="text" class="form-control" placeholder="اسم خود را بنویسید">
                     </div>
                     <div class="col-md-6 form-group">
-                      <input name="email" type="text" class="form-control" placeholder="Your Email*">
+                      <input name="email" type="text" class="form-control" placeholder="ایمیل خود را بنویسید ">
                     </div>
                   </div>
                   <div class="row">
                     <div class="col form-group">
-                      <input name="subject" type="text" class="form-control" placeholder="Your subject">
+                      <input name="subject" type="text" class="form-control" placeholder="موضوع خودت را بنویسید ">
                     </div>
                   </div>
                   <div class="row">
                     <div class="col form-group">
-                      <textarea name="message" class="form-control" placeholder="Your Comment*"></textarea>
+                      <textarea name="message" class="form-control" placeholder="کامنت خود را بنویسید "></textarea>
                     </div>
                   </div>
                   <div class="row">
@@ -193,7 +193,7 @@
                       {{form.captcha}}
                     </div>
                   </div>
-                  <button type="submit" class="btn btn-primary" >Post Comment</button>
+                  <button type="submit" class="btn btn-primary" >انتشار کامنت</button>
           
                 </form>
               </div>
@@ -206,11 +206,11 @@
 
             <div class="sidebar">
 
-              <h3 class="sidebar-title">Search</h3>
+              <h3 class="sidebar-title" style="color:black">جستوجو</h3>
               <div class="sidebar-item search-form">
-                <form action="">
-                  <input type="text">
-                  <button type="submit"><i class="bi bi-search"></i></button>
+                <form action="" >
+                  <input type="text" >
+                  <button type="submit"  style="color"><i class="bi bi-search" ></i></button>
                 </form>
               </div><!-- End sidebar search formn-->
 
@@ -234,19 +234,23 @@
         <div class="row">
           <div class="col-lg-3 col-md-6">
             <div class="footer-info">
-              <h3>شرکت رادمان گستر</h3>
+              <a href="{% url 'blog:home' %}" style="display: block; text-align: center; margin: 2px 0;">
+                <img src="{% static '/img/logo1.png' %}" style="max-width: 400px; width: 100%; height: auto;">
+              </a><br>              
               <p>
-                A108 Adam Street <br>
-                NY 535022, USA<br><br>
-                <strong dir='ltr'> شماره تماس:</strong> +1 5589 55488 55<br>
-                <strong dir='ltr'>ایمیل:</strong> info@example.com<br>
+                <p style="font-family:B-Nazanin" dir="rtl"><i class="bi bi-geo-alt"></i>
+                زنجان ، کوی گلشهر کاظمیه ، فاز یک ، بخارای اول غربی 
+                </p>
+                <br>
+                <i class="bi bi-phone" style="font-family:Arial;"></i> 09127422940 <br>
+                <i class="bi bi-phone" style="font-family:Arial;"></i> 09128788708 <br>
+                <i class="bi bi-envelope"></i> radmanet@gmail.com<br>
               </p>
               <div class="social-links mt-3">
-                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
                 <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-                <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+                <a href="#" class="telegram"><i class="bx bxl-telegram"></i></a>
                 <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                <a href="#" ><img src="{% static "/img/icons/eitaa.png" %}" style="width:75%;height:26px;"></a>
               </div>
             </div>
           </div>
@@ -283,13 +287,7 @@
     <div class="container">
       
       <div class="credits">
-        <div>
-          <a href="https://www.linkedin.com/in/kian-almasi" style="color:white;font-weight: smale;"><smale>create by Kian Almasi</smale></a>
-        </div>
-        <div style="color:white;font-weight: smale;">
-          Linked<a href="https://www.linkedin.com/in/kian-almasi" style="color: DodgerBlue;font-weight: bold;"><i class="biu bi-linkedin" style="color: DodgerBlue; font-weight: bold;"></i></a>
-        </div>
-        <div style="color:white;font-weight: smale;"> @اطلاعات شما توسط شرکت رادمان محفوظ میباشد</div>
+        <div style="color:white;font-weight: smale;"> .اطلاعات شما توسط شرکت رادمان محفوظ میباشد</div>
       </div>
     </div>
   </footer><!-- End Footer -->

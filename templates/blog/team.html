@@ -28,7 +28,7 @@
 
   <!-- Template Main CSS File -->
   <link href="{% static '/static/style.css' %}" rel="stylesheet">
-
+  
 
 </head>
 
@@ -88,11 +88,11 @@
 
           <div class="col-lg-6">
             <div class="member d-flex align-items-start">
-              <div class="pic"><img src="{% static '/img/team/team-1.jpg' %}" class="img-fluid" alt=""></div>
+              <div class="pic"><img src="{% static '/img/images.png' %}" class="img-fluid" alt=""></div>
               <div class="member-info">
-                <h4>Walter White</h4>
-                <span>Chief Executive Officer</span>
-                <p>Explicabo voluptatem mollitia et repellat</p>
+                <h4 style="font-family:B-Nazanin;color:black;">مجید الماسی</h4>
+                <span style="font-family:B-Nazanin;">مدیر عامل</span>
+                <p dir="rtl" style="font-family:B-Nazanin;">مجید الماسی ، مدیر عاملی با بینش استراتژیک و توانمندی‌های اجرایی برجسته است. با تجربه‌ای گسترده و رویکردی خلاقانه، او به هدایت موفقیت‌آمیز شرکت و تحقق اهداف کلان آن می‌پردازد.</p>
                 <div class="social">
                   <a href=""><i class="ri-twitter-fill"></i></a>
                   <a href=""><i class="ri-facebook-fill"></i></a>
@@ -105,11 +105,11 @@
 
           <div class="col-lg-6 mt-4 mt-lg-0">
             <div class="member d-flex align-items-start">
-              <div class="pic"><img src="{% static '/img/team/team-2.jpg' %}" class="img-fluid" alt=""></div>
+              <div class="pic"><img src="{% static '/img/images.png' %}" class="img-fluid" alt=""></div>
               <div class="member-info">
-                <h4>Sarah Jhonson</h4>
-                <span>Product Manager</span>
-                <p>Aut maiores voluptates amet et quis</p>
+                <h4 style="font-family:B-Nazanin;color:black;">پوریا بهروزان</h4>
+                <span style="font-family:B-Nazanin;">مدیر فنی</span>
+                <p dir="rtl" style="font-family:B-Nazanin;">پوریا بهروزان، مدیر فنی با نبوغ تکنیکی و تفکر مبتکرانه است. او با رهبری تیم‌های فنی و پیاده‌سازی راهکارهای نوآورانه، در ارتقاء کیفیت و کارایی پروژه‌های فناوری شرکت نقش بسزایی دارد.</p>
                 <div class="social">
                   <a href=""><i class="ri-twitter-fill"></i></a>
                   <a href=""><i class="ri-facebook-fill"></i></a>
@@ -122,11 +122,11 @@
 
           <div class="col-lg-6 mt-4">
             <div class="member d-flex align-items-start">
-              <div class="pic"><img src="{% static '/img/team/team-3.jpg' %}" class="img-fluid" alt=""></div>
+              <div class="pic"><img src="{% static '/img/images.png' %}" class="img-fluid" alt=""></div>
               <div class="member-info">
-                <h4>William Anderson</h4>
-                <span>CTO</span>
-                <p>Quisquam facilis cum velit laborum corrupti</p>
+                <h4 style="font-family:B-Nazanin;color:black;">محمد رضا اهنگری</h4>
+                <span style="font-family:B-Nazanin;">کارشناس شبکه</span>
+                <p dir="rtl" style="font-family:B-Nazanin;">محمد رضا اهنگری، کارشناس شبکه‌ای با دقت و تخصص بالا است که به بهینه‌سازی و نگهداری زیرساخت‌های شبکه می‌پردازد. با توانمندی در تحلیل و حل مسائل پیچیده، او اطمینان حاصل می‌کند که ارتباطات داده‌ای شرکت بدون اختلال و بهینه عمل کند.</p>
                 <div class="social">
                   <a href=""><i class="ri-twitter-fill"></i></a>
                   <a href=""><i class="ri-facebook-fill"></i></a>
@@ -139,11 +139,11 @@
 
           <div class="col-lg-6 mt-4">
             <div class="member d-flex align-items-start">
-              <div class="pic"><img src="{% static '/img/team/team-4.jpg' %}" class="img-fluid" alt=""></div>
+              <div class="pic"><img src="{% static '/img/images.png' %}" class="img-fluid" alt=""></div>
               <div class="member-info">
-                <h4>Amanda Jepson</h4>
-                <span>Accountant</span>
-                <p>Dolorum tempora officiis odit laborum officiis</p>
+                <h4 style="font-family:B-Nazanin;color:black">حمید الماسی </h4>
+                <span style="font-family:B-Nazanin;">کارشناس الکترونیک</span>
+                <p dir="rtl" style="font-family:B-Nazanin;">حمید الماسی، کارشناس الکترونیکی با مهارت‌های برجسته و تفکر خلاقانه است. او با طراحی و بهبود سیستم‌های الکترونیکی، و همچنین انجام تعمیرات لازم، به ارتقاء عملکرد و قابلیت‌های تجهیزات شرکت کمک می‌کند.</p>
                 <div class="social">
                   <a href=""><i class="ri-twitter-fill"></i></a>
                   <a href=""><i class="ri-facebook-fill"></i></a>
@@ -168,19 +168,23 @@
         <div class="row">
           <div class="col-lg-3 col-md-6">
             <div class="footer-info">
-              <h3>شرکت رادمان گستر</h3>
+              <a href="{% url 'blog:home' %}" style="display: block; text-align: center; margin: 2px 0;">
+                <img src="{% static '/img/logo1.png' %}" style="max-width: 400px; width: 100%; height: auto;">
+              </a><br>              
               <p>
-                A108 Adam Street <br>
-                NY 535022, USA<br><br>
-                <strong dir='ltr'> شماره تماس:</strong> +1 5589 55488 55<br>
-                <strong dir='ltr'>ایمیل:</strong> info@example.com<br>
+                <p style="font-family:B-Nazanin" dir="rtl"><i class="bi bi-geo-alt"></i>
+                زنجان ، کوی گلشهر کاظمیه ، فاز یک ، بخارای اول غربی 
+                </p>
+                <br>
+                <i class="bi bi-phone" style="font-family:Arial;"></i> 09127422940 <br>
+                <i class="bi bi-phone" style="font-family:Arial;"></i> 09128788708 <br>
+                <i class="bi bi-envelope"></i> radmanet@gmail.com<br>
               </p>
               <div class="social-links mt-3">
-                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
                 <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-                <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+                <a href="#" class="telegram"><i class="bx bxl-telegram"></i></a>
                 <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                <a href="#" ><img src="{% static "/img/icons/eitaa.png" %}" style="width:75%;height:26px;"></a>
               </div>
             </div>
           </div>
@@ -217,13 +221,7 @@
     <div class="container">
       
       <div class="credits">
-        <div>
-          <a href="https://www.linkedin.com/in/kian-almasi" style="color:white;font-weight: smale;"><smale>create by Kian Almasi</smale></a>
-        </div>
-        <div style="color:white;font-weight: smale;">
-          Linked<a href="https://www.linkedin.com/in/kian-almasi" style="color: DodgerBlue;font-weight: bold;"><i class="biu bi-linkedin" style="color: DodgerBlue; font-weight: bold;"></i></a>
-        </div>
-        <div style="color:white;font-weight: smale;"> @اطلاعات شما توسط شرکت رادمان محفوظ میباشد</div>
+        <div style="color:white;font-weight: smale;"> .اطلاعات شما توسط شرکت رادمان محفوظ میباشد</div>
       </div>
     </div>
   </footer><!-- End Footer -->

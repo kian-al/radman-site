@@ -3,7 +3,7 @@
 {% load humanize %}
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fa">
 
 <head>
   <meta charset="utf-8">
@@ -32,7 +32,17 @@
   <!-- Template Main CSS File -->
   <link href="{% static '/static/style.css' %}" rel="stylesheet">
 
+  <style>
+    .note-editor {
+      font-family: 'Vazir', 'Tahoma', sans-serif;
+    }
 
+    .note-editable {
+      direction: rtl;
+      text-align: right;
+      unicode-bidi: embed;  
+    }
+  </style>
 </head>
 
 <body>
@@ -68,19 +78,18 @@
 
           <div class="col-lg-4">
             <div class="portfolio-info">
-              <h3>{{project.title}}</h3>
+              <h3 dir="rtl">{{project.title}}</h3>
               <ul dir="rtl">
                 {% for tag in project.tag.all %}
                 <li><strong>دسته بندی</strong>: {{tag.name}}</li>
                 {% endfor %}
                 <li><strong>مشتری</strong>: {{ project.client }}</li>
-                
                 <li><strong>تاریخ پروژه</strong>: <time datetime="{{ project.published_date|date:"D / d / M / Y"}}" dir="rtl">{{project.published_date|naturaltime}}</time></li>
               </ul>
             </div>
             <div class="portfolio-description">
-              <h2>{{project.title}}</h2>
-              <p dir='ltr'>{{project.content|clean_html|safe}}</p>
+              <h2 dir="rtl">{{project.title}}</h2>
+              <p dir="rtl" style="font-family: Vazir;">{{project.content|clean_html|safe}}</p> 
             </div>
           </div>
 
@@ -103,6 +112,38 @@
 
   <!-- Template Main JS File -->
   <script src="{% static '/js/main.js' %}"></script>
+
+  <script>
+    $(document).ready(function() {
+      $('.summernote').summernote({
+        height: 300,
+        lang: 'fa-IR',
+        toolbar: [
+          ['style', ['bold', 'italic', 'underline', 'clear']],
+          ['font', ['strikethrough', 'superscript', 'subscript']],
+          ['fontsize', ['fontsize']],
+          ['fontname', ['fontname']],  
+          ['color', ['color']],
+          ['para', ['ul', 'ol', 'paragraph']],
+          ['height', ['height']],
+          ['direction', ['ltr', 'rtl']]
+        ],
+        fontNames: ['Arial', 'Tahoma', 'Vazir', 'B-Nazanin'],  
+        fontNamesIgnoreCheck: ['B-Nazanin'],  
+        callbacks: {
+          onInit: function() {
+            this.editingArea.find('.note-editable').css({
+              'font-family': 'B-Nazanin, Vazir, Tahoma',  
+              'unicode-bidi': 'embed',
+              'direction': 'rtl',
+              'text-align': 'right'
+            });
+          }
+        }
+      });
+    });
+  </script>
+  
 
 </body>
 

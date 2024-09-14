@@ -21,7 +21,6 @@ from django.conf.urls.static import static
 from django.contrib.sitemaps.views import sitemap
 from blog.sitemaps import StaticViewSitemap
 from weblog.sitemaps import BlogSitemap
-import debug_toolbar
 from django.conf.urls.i18n import i18n_patterns
 
 sitemaps = {
@@ -36,7 +35,6 @@ urlpatterns = [
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps},
          name='django.contrib.sitemaps.views.sitemap'),
     path('robots.txt',include('robots.urls')),
-    path('__debug__',include(debug_toolbar.urls)),
     path('summernote/', include('django_summernote.urls')),
     path('captcha/', include('captcha.urls')),
 ]

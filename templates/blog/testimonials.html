@@ -11,8 +11,7 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="{% static '/img/new1.jpg' %}" rel="icon">
-  <link href="{% static '/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+  <link href="{% static '/img/new1.jpg' %} " rel="icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -28,7 +27,85 @@
 
   <!-- Template Main CSS File -->
   <link href="{% static '/static/style.css' %}" rel="stylesheet">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
 
+    .swiper-container-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 500px;
+      margin: 50px auto;
+      max-width: 600px;
+      overflow: hidden;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      position: relative;
+    }
+
+    .swiper-container {
+      width: 100%;
+      height: 100%;
+    }
+
+    .swiper-slide {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px;
+      background: #fff;
+      border-radius: 10px;
+    }
+
+    .swiper-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain; 
+      border: 5px solid Gray;
+      border-radius: 10px;
+    }
+
+    .swiper-pagination {
+      bottom: 10px;
+    }
+
+    .swiper-pagination-bullet {
+      background-color: yellow;
+    }
+
+    .swiper-pagination-bullet-active {
+      background-color: orange;
+    }
+
+    .swiper-button-prev,
+    .swiper-button-next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      color: Gray;
+      font-size: 24px;
+      width: auto;
+      height: auto;
+    }
+
+    .swiper-button-prev {
+      left: 600px; 
+    }
+
+    .swiper-button-next {
+      right: 600px; 
+    }
+
+    
+
+    .swiper-pagination-fraction {
+      color: black;
+      font-size: 14px;
+      font-weight: bold;
+    }
+  </style>
 
 </head>
 
@@ -63,113 +140,188 @@
 
     </div>
   </header><!-- End Header -->
+      
 
   <main id="main">
-
-<!-- ======= Breadcrumbs ======= -->
-<section id="breadcrumbs" class="breadcrumbs">
-  <div class="container">
-
-    <div class="d-flex justify-content-between align-items-center" style="direction: rtl; text-align: right;">
-      <h2>گواهی نامه ها</h2>
-      <ol>
-        <li><a href="{% url 'blog:home' %}">صفحه اصلی</a></li>
-        <li>گواهینامه ها</li>
-      </ol>
-    </div>
-
-  </div>
-</section><!-- End Breadcrumbs -->
-
-    <!-- ======= Testimonials Section ======= -->
-    <section id="testimonials" class="testimonials">
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
       <div class="container">
 
-        <div class="row">
-
-          <div class="col-lg-6">
-            <div class="testimonial-item">
-              <img src="{% static '/img/testimonials/testimonials-1.jpg' %}" class="testimonial-img" alt="">
-              <h3>Saul Goodman</h3>
-              <h4>Ceo &amp; Founder</h4>
-              <p>
-                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
-                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-              </p>
-            </div>
-          </div>
-
-          <div class="col-lg-6">
-            <div class="testimonial-item mt-4 mt-lg-0">
-              <img src="{% static '/img/testimonials/testimonials-2.jpg' %}" class="testimonial-img" alt="">
-              <h3>Sara Wilsson</h3>
-              <h4>Designer</h4>
-              <p>
-                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
-                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-              </p>
-            </div>
-          </div>
-
-          <div class="col-lg-6">
-            <div class="testimonial-item mt-4">
-              <img src="{% static '/img/testimonials/testimonials-3.jpg' %}" class="testimonial-img" alt="">
-              <h3>Jena Karlis</h3>
-              <h4>Store Owner</h4>
-              <p>
-                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
-                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-              </p>
-            </div>
-          </div>
-
-          <div class="col-lg-6">
-            <div class="testimonial-item mt-4">
-              <img src="{% static '/img/testimonials/testimonials-4.jpg' %}" class="testimonial-img" alt="">
-              <h3>Matt Brandon</h3>
-              <h4>Freelancer</h4>
-              <p>
-                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
-                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-              </p>
-            </div>
-          </div>
-
-          <div class="col-lg-6">
-            <div class="testimonial-item mt-4">
-              <img src="{% static '/img/testimonials/testimonials-5.jpg' %}" class="testimonial-img" alt="">
-              <h3>John Larson</h3>
-              <h4>Entrepreneur</h4>
-              <p>
-                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
-                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-              </p>
-            </div>
-          </div>
-
-          <div class="col-lg-6">
-            <div class="testimonial-item mt-4">
-              <img src="{% static '/img/testimonials/testimonials-6.jpg' %}" class="testimonial-img" alt="">
-              <h3>Emily Harison</h3>
-              <h4>Store Owner</h4>
-              <p>
-                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                Eius ipsam praesentium dolor quaerat inventore rerum odio. Quos laudantium adipisci eius. Accusamus qui iste cupiditate sed temporibus est aspernatur. Sequi officiis ea et quia quidem.
-                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-              </p>
-            </div>
-          </div>
-
+        <div class="d-flex justify-content-between align-items-center" style="direction: rtl; text-align: right;">
+          <h2>گواهینامه ها</h2>
+          <ol>
+            <li><a href="{% url 'blog:home' %}">صفحه اصلی</a></li>
+            <li>گواهینامه ها</li>
+          </ol>
         </div>
 
       </div>
-    </section><!-- End Testimonials Section -->
+    </section><!-- End Breadcrumbs -->
+    <!-- ======= Team Section ======= -->
+    <div class="swiper-container-wrapper">
+      
+      <!-- slider -->
+      <div class="swiper-container">
+        <div class="swiper-wrapper">
+          <!-- slide 1 -->
+          <div class="swiper-slide">
+            <img src="/img/certificate/HSE & ISO  png file/1.jpg" alt="عکس 1">
+          </div>
+          <!-- slide 2 -->
+          <div class="swiper-slide">
+            <img src="/img/certificate/HSE & ISO  png file/2.jpg" alt="عکس 2">
+          </div>
+          <!-- slide 3 -->
+          <div class="swiper-slide">
+            <img src="/img/certificate/HSE & ISO  png file/3.jpg" alt="عکس 3">
+          </div>
+          <!-- slide 4 -->
+          <div class="swiper-slide">
+            <img src="/img/certificate/HSE & ISO  png file/4.jpg" alt="عکس 3">
+          </div>
+          <!-- slide 5 -->
+          <div class="swiper-slide">
+            <img src="/img/certificate/HSE & ISO  png file/5.jpg" alt="عکس 3">
+          </div>
+          <!-- slide 6 -->
+          <div class="swiper-slide">
+            <img src="/img/certificate/HSE & ISO  png file/6.jpg" alt="عکس 3">
+          </div>
+          <!-- slide 7 -->
+          <div class="swiper-slide">
+            <img src="/img/certificate/HSE & ISO  png file/7.jpg" alt="عکس 3">
+          </div>
+          <!-- slide 8 -->
+          <div class="swiper-slide">
+            <img src="/img/certificate/HSE & ISO  png file/8.jpg" alt="عکس 3">
+          </div>
+          <!-- slide 9 -->
+          <div class="swiper-slide">
+            <img src="/img/certificate/HSE & ISO  png file/9.jpg" alt="عکس 3">
+          </div>
+          <!-- slide 10 -->
+          <div class="swiper-slide">
+            <img src="/img/certificate/HSE & ISO  png file/10.jpg" alt="عکس 3">
+          </div>
+          <!-- slide 11 -->
+          <div class="swiper-slide">
+            <img src="/img/certificate/HSE & ISO  png file/11.jpg" alt="عکس 3">
+          </div>
+          <!-- slide 12 -->
+          <div class="swiper-slide">
+            <img src="/img/certificate/HSE & ISO  png file/12.jpg" alt="عکس 3">
+          </div>
+          <!-- slide 13 -->
+          <div class="swiper-slide">
+            <img src="/img/certificate/HSE & ISO  png file/13.jpg" alt="عکس 3">
+          </div>
+          <!-- slide 14 -->
+          <div class="swiper-slide">
+            <img src="/img/certificate/HSE & ISO  png file/14.jpg" alt="عکس 3">
+          </div>
+          <!-- slide 15 -->
+          <div class="swiper-slide">
+            <img src="/img/certificate/HSE & ISO  png file/15.jpg" alt="عکس 3">
+          </div>
+          <!-- slide 16 -->
+          <div class="swiper-slide">
+            <img src="/img/certificate/HSE & ISO  png file/16.jpg" alt="عکس 3">
+          </div>
+          <!-- slide 17 -->
+          <div class="swiper-slide">
+            <img src="/img/certificate/HSE & ISO  png file/17.jpg" alt="عکس 3">
+          </div>
+          <!-- slide 18 -->
+          <div class="swiper-slide">
+            <img src="/img/certificate/HSE & ISO  png file/18.jpg" alt="عکس 3">
+          </div>
+          <!-- slide 19 -->
+          <div class="swiper-slide">
+            <img src="/img/certificate/HSE & ISO  png file/19.jpg" alt="عکس 3">
+          </div>
+          <!-- slide 20 -->
+          <div class="swiper-slide">
+            <img src="/img/certificate/HSE & ISO  png file/20.jpg" alt="عکس 3">
+          </div>
+          <!-- slide 21 -->
+          <div class="swiper-slide">
+            <img src="/img/certificate/HSE & ISO  png file/21.jpg" alt="عکس 3">
+          </div>
+          <!-- slide 22 -->
+          <div class="swiper-slide">
+            <img src="/img/certificate/HSE & ISO  png file/22.jpg" alt="عکس 3">
+          </div>
+          <!-- slide 23 -->
+          <div class="swiper-slide">
+            <img src="/img/certificate/HSE & ISO  png file/23.jpg" alt="عکس 3">
+          </div>
+          <!-- slide 24 -->
+          <div class="swiper-slide">
+            <img src="/img/certificate/HSE & ISO  png file/24.jpg" alt="عکس 3">
+          </div>
+          <!-- slide 25 -->
+          <div class="swiper-slide">
+            <img src="/img/certificate/HSE & ISO  png file/25.jpg" alt="عکس 3">
+          </div>
+          <!-- slide 26 -->
+          <div class="swiper-slide">
+            <img src="/img/certificate/HSE & ISO  png file/26.jpg" alt="عکس 3">
+          </div>
+          <!-- slide 27 -->
+          <div class="swiper-slide">
+            <img src="/img/certificate/HSE & ISO  png file/27.jpg" alt="عکس 3">
+          </div>
+          <!-- slide 28 -->
+          <div class="swiper-slide">
+            <img src="/img/certificate/HSE & ISO  png file/28.jpg" alt="عکس 3">
+          </div>
+          <!-- slide 29 -->
+          <div class="swiper-slide">
+            <img src="/img/certificate/HSE & ISO  png file/29.jpg" alt="عکس 3">
+          </div>
+          <!-- slide 30 -->
+          <div class="swiper-slide">
+            <img src="/img/certificate/HSE & ISO  png file/30.jpg" alt="عکس 3">
+          </div>
+          <!-- slide 31 -->
+          <div class="swiper-slide">
+            <img src="/img/certificate/HSE & ISO  png file/31.png" alt="عکس 3">
+          </div>
+          <!-- slide 32 -->
+          <div class="swiper-slide">
+            <img src="/img/certificate/HSE & ISO  png file/32.png" alt="عکس 3">
+          </div>
+          <!-- slide 33 -->
+          <div class="swiper-slide">
+            <img src="/img/certificate/HSE & ISO  png file/33.png" alt="عکس 3">
+          </div>
+          <!-- slide 34 -->
+          <div class="swiper-slide">
+            <img src="/img/certificate/HSE & ISO  png file/34.png" alt="عکس 3">
+          </div>
+          <!-- slide 35 -->
+          <div class="swiper-slide">
+            <img src="/img/certificate/HSE & ISO  png file/35.png" alt="عکس 3">
+          </div>
+          <!-- slide 36 -->
+          <div class="swiper-slide">
+            <img src="/img/certificate/HSE & ISO  png file/36.png" alt="عکس 3">
+          </div>
+          <!-- slide 37 -->
+          <div class="swiper-slide">
+            <img src="/img/certificate/HSE & ISO  png file/37.png" alt="عکس 3">
+          </div>
+        </div>
 
+        
+
+        <!-- images countaner -->
+        <div class="swiper-pagination swiper-pagination-fraction"></div>
+      </div>
+    </div>
+    <!-- change butten -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
@@ -179,19 +331,23 @@
         <div class="row">
           <div class="col-lg-3 col-md-6">
             <div class="footer-info">
-              <h3>شرکت رادمان گستر</h3>
+              <a href="{% url 'blog:home' %}" style="display: block; text-align: center; margin: 2px 0;">
+                <img src="{% static '/img/logo1.png' %}" style="max-width: 400px; width: 100%; height: auto;">
+              </a>              
               <p>
-                A108 Adam Street <br>
-                NY 535022, USA<br><br>
-                <strong dir='ltr'> شماره تماس:</strong> +1 5589 55488 55<br>
-                <strong dir='ltr'>ایمیل:</strong> info@example.com<br>
+                <p style="font-family:B-Nazanin" dir="rtl"><i class="bi bi-geo-alt"></i>
+                زنجان ، کوی گلشهر کاظمیه ، فاز یک ، بخارای اول غربی 
+                </p>
+                <br>
+                <i class="bi bi-phone" style="font-family:Arial;"></i> 09127422940 <br>
+                <i class="bi bi-phone" style="font-family:Arial;"></i> 09128788708 <br>
+                <i class="bi bi-envelope"></i> radmanet@gmail.com<br>
               </p>
               <div class="social-links mt-3">
-                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
                 <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-                <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+                <a href="#" class="telegram"><i class="bx bxl-telegram"></i></a>
                 <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                <a href="#" ><img src="{% static "/img/icons/eitaa.png" %}" style="width:75%;height:26px;"></a>
               </div>
             </div>
           </div>
@@ -228,13 +384,7 @@
     <div class="container">
       
       <div class="credits">
-        <div>
-          <a href="https://www.linkedin.com/in/kian-almasi" style="color:white;font-weight: smale;"><smale>create by Kian Almasi</smale></a>
-        </div>
-        <div style="color:white;font-weight: smale;">
-          Linked<a href="https://www.linkedin.com/in/kian-almasi" style="color: DodgerBlue;font-weight: bold;"><i class="biu bi-linkedin" style="color: DodgerBlue; font-weight: bold;"></i></a>
-        </div>
-        <div style="color:white;font-weight: smale;"> @اطلاعات شما توسط شرکت رادمان محفوظ میباشد</div>
+        <div style="color:white;font-weight: smale;">.اطلاعات شما توسط شرکت رادمان محفوظ میباشد</div>
       </div>
     </div>
   </footer><!-- End Footer -->
@@ -249,7 +399,24 @@
 
   <!-- Template Main JS File -->
   <script src="{% static '/js/main.js' %}"></script>
-
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script>
+    var swiper = new Swiper('.swiper-container', {
+      loop: true,
+      autoplay: {
+        delay: 3000, 
+        disableOnInteraction: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        type: 'fraction',
+      },
+    });
+  </script>
 </body>
 
 </html>

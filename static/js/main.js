@@ -66,10 +66,10 @@
     const toggleBacktotop = () => {
       if (window.scrollY > 100) {
         backtotop.classList.add('active')
-        backtotop.style.backgroundColor = 'yellow'; // اضافه کردن رنگ زرد به زمینه دکمه
+        backtotop.style.backgroundColor = 'yellow'; 
       } else {
         backtotop.classList.remove('active')
-        backtotop.style.backgroundColor = ''; // حذف رنگ زمینه در صورت لغو شدن شرایط
+        backtotop.style.backgroundColor = 'yellow'; 
       }
     }
     window.addEventListener('load', toggleBacktotop)
@@ -83,7 +83,7 @@
     select('#navbar').classList.toggle('navbar-mobile')
     this.classList.toggle('bi-list')
     this.classList.toggle('bi-x')
-    this.style.color = 'yellow'; // اضافه کردن رنگ زرد به آیکون موس
+    this.style.color = 'yellow'; 
   })
 
   /**

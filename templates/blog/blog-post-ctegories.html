@@ -1,18 +1,17 @@
 {% load static %}
-<h3 class="sidebar-title">Post Categories</h3>
 <div class="sidebar-item categories">
   <table class="table">
     <thead>
       <tr>
-        <th scope="col" class="category-header">Category</th>
-        <th scope="col" class="category-header">Count</th>
+        <th scope="col" class="category-header">اسم دسته بندی</th>
+        <th scope="col" class="category-header">تعداد دسته بندی</th>
       </tr>
     </thead>
     <tbody>
       {% for name, count in categries.items %}
       <tr>
         <td>
-          <a href="{% url 'weblog:category' name%}" class="color:DodgerBlue">{{ name }}</a>
+          <a href="{% url 'weblog:category' name%}" >{{ name }}</a>
         </td>
         <td class="text-right">
           {{ count }}

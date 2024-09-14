@@ -17,9 +17,127 @@
       letter-spacing: 7px;
        
     }
+    
+    .clients {
+        background-color: #FAE209;
+        padding: 200px 0;
+        box-shadow: 0 0 30px rgba(234, 236, 163, 0.8); 
+        border-radius: 20px; 
+        padding: 30px; 
+    }
+
+    .logo-slider {
+        width: 100%;
+        overflow: hidden; 
+        position: relative;
+    }
+
+    .logo-slider-wrapper {
+        display: flex;
+        width: auto;
+        animation: scroll 60s linear infinite; 
+    }
+
+    .client-logo {
+        width: 100px; 
+        height: 100px; 
+        object-fit: contain; 
+        margin-right: 20px; 
+        border: 5px solid Gray; 
+        box-shadow: 0 0 10px rgba(245, 245, 101, 0.8); 
+        border-radius: 10px; 
+        padding: 10px; 
+        background-color: white; 
+    }
+
+    @keyframes scroll {
+        0% {
+            transform: translateX(100%); 
+        }
+        100% {
+            transform: translateX(-100%); 
+        }
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    .swiper-container-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 500px;
+      margin: 50px auto;
+      max-width: 600px;
+      overflow: hidden;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      position: relative;
+    }
+
+    .swiper-container {
+      width: 100%;
+      height: 100%;
+    }
+
+    .swiper-slide {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px;
+      background: #fff;
+      border-radius: 10px;
+    }
+
+    .swiper-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain; 
+      border: 5px solid Gray;
+      border-radius: 10px;
+    }
+
+    .swiper-pagination {
+      bottom: 10px;
+    }
+
+    .swiper-pagination-bullet {
+      background-color: yellow;
+    }
+
+    .swiper-pagination-bullet-active {
+      background-color: orange;
+    }
+
+  
+    .swiper-button-prev,
+    .swiper-button-next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      color: Gray;
+      font-size: 24px;
+      width: auto;
+      height: auto;
+    }
+
+    .swiper-button-prev {
+      left: 600px; 
+    }
+
+    .swiper-button-next {
+      right: 600px; 
+    }
+
+    
+
+    .swiper-pagination-fraction {
+      color: black;
+      font-size: 14px;
+      font-weight: bold;
+    }
   </style>
-
-
 
   <script>
     function updateClock(initialTime) {
@@ -86,7 +204,7 @@
           <li><a href="{% url 'weblog:blog_view' %}">وبلاگ</a></li>
 
           <li><a href="{% url 'blog:contact' %}">ارتباط با ما</a></li>
-          <li><a href="{% url 'blog:home' %}" class="getstarted">شروع</a></li>
+          <li><a href="{% url 'blog:home' %}" class="getstarted" >شروع</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
         {% include 'blog/messages.html' %}
@@ -108,34 +226,49 @@
       <div class="carousel-inner" role="listbox">
 
         <!-- Slide 1 -->
-        <div class="carousel-item active" style="background-image: url({% static 'img/slide/p1.jpg' %})">
+        <div class="carousel-item active" style="background-image: url({% static 'img/slide/p3.jpg' %})">
           <div class="carousel-container">
             <div class="container">
-              <h2 class="animate__animated animate__fadeInDown">خوش آمدید به  <span>وبسایت رسمی شرکت رادمان</span></h2>
+              <h2 class="animate__animated animate__fadeInDown" style="font-family:B-Nazanin">خوش آمدید به  <span>وبسایت رسمی شرکت رادمان</span></h2>
              
-              <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
               <a href="{% url 'blog:about' %}" class="btn-get-started animate__animated animate__fadeInUp scrollto">بیشتر بخوانید</a>
             </div>
           </div>
         </div>
 
         <!-- Slide 2 -->
-        <div class="carousel-item" style="background-image: url({% static 'img/slide/p2.jpg' %})">
+        <div class="carousel-item" style="background-image: url({% static 'img/slide/p4.jpg' %})">
           <div class="carousel-container">
             <div class="container">
-              <h2 class="animate__animated animate__fadeInDown">خوش آمدید به  <span>وبسایت رسمی شرکت رادمان</span></h2>
-              <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
+              <h2 class="animate__animated animate__fadeInDown"style="font-family:B-Nazanin">خوش آمدید به  <span>وبسایت رسمی شرکت رادمان</span></h2>
               <a href="{% url 'blog:about' %}" class="btn-get-started animate__animated animate__fadeInUp scrollto">بیشتر بخوانید</a>
             </div>
           </div>
         </div>
 
         <!-- Slide 3 -->
-        <div class="carousel-item" style="background-image: url({% static 'img/slide/p3.jpg' %})">
+        <div class="carousel-item" style="background-image: url({% static 'img/slide/p5.jpg' %})">
           <div class="carousel-container">
             <div class="container">
-              <h2 class="animate__animated animate__fadeInDown">خوش آمدید به  <span>وبسایت رسمی شرکت رادمان</span></h2>
-              <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
+              <h2 class="animate__animated animate__fadeInDown" style="font-family:B-Nazanin">خوش آمدید به  <span>وبسایت رسمی شرکت رادمان</span></h2>
+              <a href="{% url 'blog:about' %}" class="btn-get-started animate__animated animate__fadeInUp scrollto">بیشتر بخوانید</a>
+            </div>
+          </div>
+        </div>
+        <!-- Slide 4 -->
+        <div class="carousel-item" style="background-image: url({% static 'img/slide/p6.jpg' %})">
+          <div class="carousel-container">
+            <div class="container">
+              <h2 class="animate__animated animate__fadeInDown" style="font-family:B-Nazanin">خوش آمدید به  <span>وبسایت رسمی شرکت رادمان</span></h2>
+              <a href="{% url 'blog:about' %}" class="btn-get-started animate__animated animate__fadeInUp scrollto">بیشتر بخوانید</a>
+            </div>
+          </div>
+        </div>
+        <!-- Slide 5 -->
+        <div class="carousel-item" style="background-image: url({% static 'img/slide/p7.jpg' %})">
+          <div class="carousel-container">
+            <div class="container">
+              <h2 class="animate__animated animate__fadeInDown" style="font-family:B-Nazanin">خوش آمدید به  <span>وبسایت رسمی شرکت رادمان</span></h2>
               <a href="{% url 'blog:about' %}" class="btn-get-started animate__animated animate__fadeInUp scrollto">بیشتر بخوانید</a>
             </div>
           </div>
@@ -165,76 +298,68 @@
         <div class="row content">
           <div class="col-lg-6">
             <h1><span id="clock" >{{ clock }}</span></h1>
-            <h3><div id="typed-text">درباره ما</div></h3>
-            <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-            <h4 dir="rtl">شرکت رادمان گستر عصر دانش در سال ۱۳۹۳ با هدف ارائه خدمات نرم افزاری و سخت افزاری در زمینه شبکه و اینترنت , برق و مخابرات و سیستم های اعلان و اطفاء حریق مدیریت جامع تصاویر فعالیت خود را آغاز نمود و در اندک زمان ,
-              با بهره گیری از نیروهای متخصص , متهد و توانمند توانست جایگاه ویژه ای را در جامعه ICT کشور به خود اختصاص دهد.
+            <h3 style="font-family:B-Nazanin;color:black" dir="rtl">درباره ما</h3>
+            <h4 dir="rtl" style="font-family:B-Nazanin;">شرکت رادمان گستر عصر دانش در سال ۱۳۹۳ با هدف ارائه خدمات نرم افزاری و سخت افزاری در زمینه شبکه و اینترنت , برق و مخابرات و سیستم های اعلان و اطفاء حریق مدیریت جامع تصاویر فعالیت خود را آغاز نمود و در اندک زمان ,
+              با بهره گیری از نیروهای متخصص , متهد و توانمند توانست جایگاه ویژه ای را در جامعه ICT و سیستم های نظارتی و ثبت تخلف ( اجرا و نگهداری مانیتورینگ دوربین های ترافیکی ، نظارتی و ثبت تخلف ) در سطح شهر های کشور بدست آورد.
             </h4>
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0">
-            <h7 dir="rtl">
+            <h7 dir="rtl" style="font-family:B-Nazanin;color:black">
               هم اکنون با پیشرفت تکنولوژی و نیاز روزافزون کشور به شبکه های بی سیم و کابلی کامپیوتری همگان با پیشگامان جهان در راستای به روز نمودن این صنعت در کشور طی طریق می نماید همچنین این شرکت توانست 
               طیف وسیعی از مشتریان را شامل : سازمان های دولتی ,شرکت های خصوصی,همکاران و کاربران نهایی تحت پوشش قرار دهد.
               ضمنا مسئولیت پذیری و مشتری محوری پایه های اصلی این شرکت می باشد,و نو آوری و برخورداری از قابلیت تغییر پذیری هدفمند از راهکار های مناسب برای بهبود و پیشرفت این شرکت است .
             </h7>
             <br>
-            <h6 dir="ltr" style="font-family:verdana;bold;">چهار تا از اصلی ترین دلایلی که برای همکاری با این شرکت ما به شما ارائه میدیم</h6>
+            <br>
+            <h5 dir="ltr" style="font-family:B-Nazanin;bold;color:black;">چهار تا از اصلی ترین دلایلی که برای همکاری با این شرکت ما به شما ارائه میدیم</h5>
+            <br>
             <ul>
-              <li dir="rtl"><i class="ri-check-double-line"></i> خدمات مشاوره در زمینه های LAN,WAN,Wireless</li>
-              <li dir="rtl"><i class="ri-check-double-line"></i> خدمات نگهداری و پشتیبانی Wireless , اتاق سرور و Passive و Active</li>
-              <li dir="rtl"><i class="ri-check-double-line"></i>خدمات نصب و راه اندازی شبکه های  LAN,WAN,Wireless و مانیتورینگ این تکنولوژی ها .</li>
-              <li dir="rtl"><i class="ri-check-double-line"></i> خدمات فروش تمامی تجهیزات شبکه  server,switch,firewall,SAN,NAS و انواع رک های ایستاده و دیواری و انواع دکل مهاری و خودایستا.</li>
+              <li dir="rtl" style="font-family:B-Nazanin;color:black"><i class="ri-check-double-line"></i> خدمات مشاوره و نصب و راه اندازی در زمینه های LAN,WAN,Wireless</li>
+              <li dir="rtl" style="font-family:B-Nazanin;color:black"><i class="ri-check-double-line"></i> خدمات نگهداری و پشتیبانی Wireless , اتاق سرور و Passive و Active</li>
+              <li dir="rtl" style="font-family:B-Nazanin;color:black"><i class="ri-check-double-line"></i>خدمات نصب و راه اندازی سیستم های نظارت تصاویر و ترافیکی در سطح شهر های کشور و مانیتورینگ آنها.</li>
+              <li dir="rtl" style="font-family:B-Nazanin;color:black"><i class="ri-check-double-line"></i> خدمات فروش انواع تجهیزات شبکه  server,switch,router,firewall,SAN,NAS,wireless و دوربین های نظارتی و ترافیکی و رک های ایستاده و دیواری و دکل مهاری و خودایستا.</li>
             </ul>
-            <p class="fst-italic" dir="rtl">
-              شرکت رادمان با بیشتر از 10 سال سابقه در زمینه شبکه های کامپیوتری پذیرای تمامی پروژه ها و نیاز های شما عزیزان در این زمینه ها هستش.
+            <p class="fst-italic" dir="rtl" style="font-family:B-Nazanin;color:black">
+              شرکت رادمان با بیشتر از 10 سال سابقه در زمینه شبکه های کامپیوتری ، پذیرای تمامی پروژه ها و نیاز های شما عزیزان در این زمینه ها میباشد.
             </p>
           </div>
         </div>
 
       </div>
     </section><!-- End About Section -->
+    <div class="line-container">
+      <div class="line-left"></div>
+      <span>مشتری ها</span>
+      <div class="line-right"></div>
+    </div><br><br>
 
-    <!-- ======= Clients Section ======= -->
-    <div id="clients" class="clients section-bg">
-      <div class="container">
-        <div class="row justify-content-center align-items-center flex-wrap">
-          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center mb-4">
-            <img src="{% static 'img/clients/زنجان.png' %}" class="img-fluid" alt="" style="width:50;height:50">
-          </div>
-          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center mb-4">
-            <img src="{% static 'img/clients/images.png' %}" class="img-fluid" alt="" style="width:50;height:50">
-          </div>
-          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center mb-4">
-            <img src="{% static 'img/clients/دانشگاه-آزاد-اسلامی-واحد-زنجان.png' %}" class="img-fluid" alt="" style="width:50;height:50">
-          </div>
-          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center mb-4">
-            <img src="{% static 'img/clients/University_of_Zanjan.jpg' %}" class="img-fluid" alt="" style="width:50;height:50">
-          </div>
-          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center mb-4">
-            <img src="{% static 'img/clients/artesh.png' %}" class="img-fluid" alt="" style="width:50;height:50">
-          </div>
-          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center mb-4">
-            <img src="{% static 'img/clients/اداره اموزش و پرورش.png' %}" class="img-fluid" alt="" style="width:50;height:50">
-          </div>
-          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center mb-4">
-            <img src="{% static 'img/clients/استانداری زنجان.png' %}" class="img-fluid" alt="" style="width:50;height:50">
-          </div>
-          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center mb-4">
-            <img src="{% static 'img/clients/بانک مهر ایران.png' %}" class="img-fluid" alt="" style="width:50;height:50">
-          </div>
-          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center mb-4">
-            <img src="{% static 'img/clients/پیام نور.png' %}" class="img-fluid" alt="" style="width:100;height:100">
-          </div>
-          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center mb-4">
-            <img src="{% static 'img/clients/لوگو دانشگاه ازاد.png' %}" class="img-fluid" alt="" style="width:50;height:50">
-          </div>
-          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center mb-4">
-            <img src="{% static 'img/clients/شرکت گاز.png' %}" class="img-fluid" alt="" style="width:50;height:50">
-          </div>
+      <!-- ======= Clients Section ======= -->
+      <div id="clients" class="clients section-bg py-5">
+        <div class="container">
+            <div class="logo-slider">
+                <div class="logo-slider-wrapper">
+                    <img src="/img/clients/زنجان.png" class="client-logo" alt="لوگو شهرداری زنجان">
+                    <img src="/img/clients/images.png" class="client-logo" alt="لوگو شهرداری سلطانیه">
+                    <img src="/img/clients/لوگو دانشگاه ازاد.png" class="client-logo" alt="لوگو دانشگاه آزاد زنجان">
+                    <img src="/img/clients/University_of_Zanjan.jpg" class="client-logo" alt="لوگو دانشگاه زنجان">
+                    <img src="/img/clients/artesh.png" class="client-logo" alt="لوگو ارتش">
+                    <img src="/img/clients/اداره اموزش و پرورش.png" class="client-logo" alt="لوگو آموزش و پرورش">
+                    <img src="/img/clients/استانداری زنجان.png" class="client-logo" alt="لوگو استانداری زنجان">
+                    <img src="/img/clients/بانک مهر ایران.png" class="client-logo" alt="لوگو بانک مهر ایران">
+                    <img src="/img/clients/پیام-نور.png" class="client-logo" alt="لوگو پیام نور">
+                    <img src="/img/clients/شرکت گاز.png" class="client-logo" alt="لوگو شرکت گاز">
+                    <img src="/img/clients/علوم-پزشکی.jpg" class="client-logo" alt="لوگو علوم پزشکی">
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
+    </div><br><br>
     <!-- End Clients Section -->
+    <div class="line-container">
+      <div class="line-left"></div>
+      <span>خدمات ها</span>
+      <div class="line-right"></div>
+    </div>
+
     <!-- ======= Services Section ======= -->
     <section id="services" class="services">
       <div class="container">
@@ -242,48 +367,57 @@
           <div class="col-md-6">
             <div class="icon-box">
               <i class="bi bi-briefcase"></i>
-              <h4><a href="{% url 'blog:services' %}">خدمات مشاوره</a></h4>
-              <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
+              <h4 style="font-family:B-Nazanin;color:black"><a href="{% url 'blog:services' %}" >خدمات مشاوره</a></h4>
+              <p style="font-family:B-Nazanin;color:black" dir="rtl">این خدمات شامل طراحی و پیاده سازی شبکه های LAN , WAN , Wireless هستش و پیاده سازی و خرید تجهیزات تخصصی شبکه و سیستم های اعلان و اطفاء حریق وسیستم های مدیریت جامع تصاویر سازمانی و شهری هستش.</p>
             </div>
           </div>
           <div class="col-md-6 mt-4 mt-md-0">
             <div class="icon-box">
               <i class="bi bi-card-checklist"></i>
               <h4><a href="{% url 'blog:services' %}">خدمات نگهداری و پشتیبانی</a></h4>
-              <p>Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
+              <p style="font-family:B-Nazanin;color:black" dir="rtl">ارائه خدمات نگهداری و پشتیبانی از تمامی سرویس های نصب و راه اندازی شده شبکه ,برق و مخابرات و تمامی تجهیزات اتاق سرور و خدمات نگهداری دکل های مهاری و نگهداری سیستم های اعلان و اطفاء حریق و 
+               <b>جامع تصاویر از جمله اجرا دوربین های سازمانی و ترافیکی سطح شهر </b>
+               است.
+              </p>
             </div>
           </div>
           <div class="col-md-6 mt-4 mt-md-0">
             <div class="icon-box">
               <i class="bi bi-bar-chart"></i>
               <h4><a href="{% url 'blog:services' %}">خدمات نصب و راه اندازی</a></h4>
-              <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
+              <p style="font-family:B-Nazanin;color:black" dir="rtl">خدمات نصب و راه اندازی انواع  شبکه های LAN , WAN , ISP و برق و مخابرات وسیستم های اعلان و اطفاء حریق مدیریت جامع تصاویر وراه اندازی شبکه های wireless (که شامل انتقال دیتا ,انتقال اینترنت ,انتقال خطوط تلفن, انتقال تصاویر دوربین های مداربسته و ترافیکی و امنیتی WISP) و پیاده سازی حرفه ای و امن انواع کانفیگ های روتر ها و سویچ ها و نصب انواع رادیو ها و انتن ها بر روی دکل ها و اجرای پروژه های راه اندازی ارتباطات فیبر نوری.</p>
             </div>
           </div>
           <div class="col-md-6 mt-4 mt-md-0">
             <div class="icon-box">
               <i class="bi bi-binoculars"></i>
               <h4><a href="{% url 'blog:services' %}">خدمات فروش</a></h4>
-              <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+              <p style="font-family:B-Nazanin;color:black" dir="rtl"> فروش کلیه تجهیزات Active و Passive شبکه , برق و مخابرات و تجهیزات تخصصی سیستم اعلان و اطفاء حریق و سیستم مدیریت جامع تصاویر و همچنین تجهیزات Wireless شامل آنتن , رادیو , آمپلی فایر , اسپلیتر , کابل های رابط و کانکتور و فروش سرور و قطعات جانبی آن از شرکت های معتبر جهانی و روتر ها و سویچ های این شرکت ها و فروش انواع رک های ایستا و دیواری.</p>
             </div>
           </div>
           <div class="col-md-6 mt-4 mt-md-0">
             <div class="icon-box">
               <i class="bi bi-brightness-high"></i>
               <h4><a href="{% url 'blog:services' %}">تولید نرم افزارهای تحت شبکه به سفارش مشتری</a></h4>
-              <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque</p>
+              <p style="font-family:B-Nazanin;color:black" dir="rtl" >در صورت درخواست تولید این نوع نرم افزار ما قدم به قدم همراه شما هستیم از طراحی تشکیل تیم تا رساندن این نرم افزار به مرحله استفاده کاربران در کنار شما خواهیم بود .</p>
             </div>
           </div>
           <div class="col-md-6 mt-4 mt-md-0">
             <div class="icon-box">
               <i class="bi bi-calendar4-week"></i>
               <h4><a href="{% url 'blog:services' %}">مشاوره , طراحی و راه اندازی وب سایت</a></h4>
-              <p>Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi</p>
+              <p style="font-family:B-Nazanin;color:black" dir="rtl"> در صورت درخواست تولید وبسایت ما قدم به قدم همراه شما هستیم از طراحی تشکیل تیم تا رساندن این وبسایت به مرحله پیاده سازی و تولید.</p>
             </div>
           </div>
         </div>
       </div>
     </section><!-- End Services Section -->
+    <div class="line-container">
+      <div class="line-left"></div>
+      <span>پروژه‌ها</span>
+      <div class="line-right"></div>
+    </div>
+
     <!-- ======= Portfolio Section ======= -->
     <section id="portfolio" class="portfolio">
       <div class="container">
@@ -298,6 +432,7 @@
               </div>
           </div>
 
+
           <div class="row portfolio-container">
               {% for project in projects %}
               {% if 'camera' in project.tag.names %}
@@ -310,8 +445,8 @@
                   <div class="portfolio-wrap">
                       <img src="{{ project.image1.url }}" class="img-fluid" alt="">
                       <div class="portfolio-info">
-                          <h4>{{ project.title }}</h4>
-                          <p>{{ project.content|clean_html|safe|truncatechars:60 }}</p>
+                          <h4 dir="rtl">{{ project.title }}</h4>
+                          <p dir="rtl">{{ project.content|clean_html|safe|truncatechars:60 }}</p>
                           <div class="portfolio-links">
                               <a href="{{ project.image1.url }}" data-gallery="portfolioGallery" class="portfolio-lightbox" title=""><i class="bx bx-plus"></i></a>
                               <a href="{% url 'blog:portfolio_details' pid=project.id %}" class="portfolio-details-lightbox" data-glightbox="type: external" title="جزئیات پروژه"><i class="bx bx-link"></i></a>
@@ -328,6 +463,174 @@
       </div>
     </section>
     <!-- End Portfolio Section -->
+    <div class="line-container">
+      <div class="line-left"></div>
+      <span>گواهینامه ها</span>
+      <div class="line-right"></div>
+    </div>
+
+    <!-- ======= Team Section ======= -->
+    <div class="swiper-container-wrapper">
+  
+      <!-- slider -->
+      <div class="swiper-container">
+        <div class="swiper-wrapper">
+          <!-- slide 1 -->
+          <div class="swiper-slide">
+            <img src="/img/certificate/HSE & ISO  png file/1.jpg" alt="عکس 1">
+          </div>
+          <!-- slide 2 -->
+          <div class="swiper-slide">
+            <img src="/img/certificate/HSE & ISO  png file/2.jpg" alt="عکس 2">
+          </div>
+          <!-- slide 3 -->
+          <div class="swiper-slide">
+            <img src="/img/certificate/HSE & ISO  png file/3.jpg" alt="عکس 3">
+          </div>
+          <!-- slide 4 -->
+          <div class="swiper-slide">
+            <img src="/img/certificate/HSE & ISO  png file/4.jpg" alt="عکس 3">
+          </div>
+          <!-- slide 5 -->
+          <div class="swiper-slide">
+            <img src="/img/certificate/HSE & ISO  png file/5.jpg" alt="عکس 3">
+          </div>
+          <!-- slide 6 -->
+          <div class="swiper-slide">
+            <img src="/img/certificate/HSE & ISO  png file/6.jpg" alt="عکس 3">
+          </div>
+          <!-- slide 7 -->
+          <div class="swiper-slide">
+            <img src="/img/certificate/HSE & ISO  png file/7.jpg" alt="عکس 3">
+          </div>
+          <!-- slide 8 -->
+          <div class="swiper-slide">
+            <img src="/img/certificate/HSE & ISO  png file/8.jpg" alt="عکس 3">
+          </div>
+          <!-- slide 9 -->
+          <div class="swiper-slide">
+            <img src="/img/certificate/HSE & ISO  png file/9.jpg" alt="عکس 3">
+          </div>
+          <!-- slide 10 -->
+          <div class="swiper-slide">
+            <img src="/img/certificate/HSE & ISO  png file/10.jpg" alt="عکس 3">
+          </div>
+          <!-- slide 11 -->
+          <div class="swiper-slide">
+            <img src="/img/certificate/HSE & ISO  png file/11.jpg" alt="عکس 3">
+          </div>
+          <!-- slide 12 -->
+          <div class="swiper-slide">
+            <img src="/img/certificate/HSE & ISO  png file/12.jpg" alt="عکس 3">
+          </div>
+          <!-- slide 13 -->
+          <div class="swiper-slide">
+            <img src="/img/certificate/HSE & ISO  png file/13.jpg" alt="عکس 3">
+          </div>
+          <!-- slide 14 -->
+          <div class="swiper-slide">
+            <img src="/img/certificate/HSE & ISO  png file/14.jpg" alt="عکس 3">
+          </div>
+          <!-- slide 15 -->
+          <div class="swiper-slide">
+            <img src="/img/certificate/HSE & ISO  png file/15.jpg" alt="عکس 3">
+          </div>
+          <!-- slide 16 -->
+          <div class="swiper-slide">
+            <img src="/img/certificate/HSE & ISO  png file/16.jpg" alt="عکس 3">
+          </div>
+          <!-- slide 17 -->
+          <div class="swiper-slide">
+            <img src="/img/certificate/HSE & ISO  png file/17.jpg" alt="عکس 3">
+          </div>
+          <!-- slide 18 -->
+          <div class="swiper-slide">
+            <img src="/img/certificate/HSE & ISO  png file/18.jpg" alt="عکس 3">
+          </div>
+          <!-- slide 19 -->
+          <div class="swiper-slide">
+            <img src="/img/certificate/HSE & ISO  png file/19.jpg" alt="عکس 3">
+          </div>
+          <!-- slide 20 -->
+          <div class="swiper-slide">
+            <img src="/img/certificate/HSE & ISO  png file/20.jpg" alt="عکس 3">
+          </div>
+          <!-- slide 21 -->
+          <div class="swiper-slide">
+            <img src="/img/certificate/HSE & ISO  png file/21.jpg" alt="عکس 3">
+          </div>
+          <!-- slide 22 -->
+          <div class="swiper-slide">
+            <img src="/img/certificate/HSE & ISO  png file/22.jpg" alt="عکس 3">
+          </div>
+          <!-- slide 23 -->
+          <div class="swiper-slide">
+            <img src="/img/certificate/HSE & ISO  png file/23.jpg" alt="عکس 3">
+          </div>
+          <!-- slide 24 -->
+          <div class="swiper-slide">
+            <img src="/img/certificate/HSE & ISO  png file/24.jpg" alt="عکس 3">
+          </div>
+          <!-- slide 25 -->
+          <div class="swiper-slide">
+            <img src="/img/certificate/HSE & ISO  png file/25.jpg" alt="عکس 3">
+          </div>
+          <!-- slide 26 -->
+          <div class="swiper-slide">
+            <img src="/img/certificate/HSE & ISO  png file/26.jpg" alt="عکس 3">
+          </div>
+          <!-- slide 27 -->
+          <div class="swiper-slide">
+            <img src="/img/certificate/HSE & ISO  png file/27.jpg" alt="عکس 3">
+          </div>
+          <!-- slide 28 -->
+          <div class="swiper-slide">
+            <img src="/img/certificate/HSE & ISO  png file/28.jpg" alt="عکس 3">
+          </div>
+          <!-- slide 29 -->
+          <div class="swiper-slide">
+            <img src="/img/certificate/HSE & ISO  png file/29.jpg" alt="عکس 3">
+          </div>
+          <!-- slide 30 -->
+          <div class="swiper-slide">
+            <img src="/img/certificate/HSE & ISO  png file/30.jpg" alt="عکس 3">
+          </div>
+          <!-- slide 31 -->
+          <div class="swiper-slide">
+            <img src="/img/certificate/HSE & ISO  png file/31.png" alt="عکس 3">
+          </div>
+          <!-- slide 32 -->
+          <div class="swiper-slide">
+            <img src="/img/certificate/HSE & ISO  png file/32.png" alt="عکس 3">
+          </div>
+          <!-- slide 33 -->
+          <div class="swiper-slide">
+            <img src="/img/certificate/HSE & ISO  png file/33.png" alt="عکس 3">
+          </div>
+          <!-- slide 34 -->
+          <div class="swiper-slide">
+            <img src="/img/certificate/HSE & ISO  png file/34.png" alt="عکس 3">
+          </div>
+          <!-- slide 35 -->
+          <div class="swiper-slide">
+            <img src="/img/certificate/HSE & ISO  png file/35.png" alt="عکس 3">
+          </div>
+          <!-- slide 36 -->
+          <div class="swiper-slide">
+            <img src="/img/certificate/HSE & ISO  png file/36.png" alt="عکس 3">
+          </div>
+          <!-- slide 37 -->
+          <div class="swiper-slide">
+            <img src="/img/certificate/HSE & ISO  png file/37.png" alt="عکس 3">
+          </div>
+        </div>
+
+        
+
+        <!-- images countaner -->
+        <div class="swiper-pagination swiper-pagination-fraction"></div>
+      </div>
+    </div>
 
 
   </main><!-- End #main -->
@@ -338,19 +641,23 @@
         <div class="row">
           <div class="col-lg-3 col-md-6">
             <div class="footer-info">
-              <h3>شرکت رادمان گستر</h3>
+              <a href="{% url 'blog:home' %}" style="display: block; text-align: center; margin: 2px 0;">
+                <img src="{% static '/img/logo1.png' %}" style="max-width: 400px; width: 100%; height: auto;">
+              </a><br>              
               <p>
-                A108 Adam Street <br>
-                NY 535022, USA<br><br>
-                <strong dir='ltr'> شماره تماس:</strong> +1 5589 55488 55<br>
-                <strong dir='ltr'>ایمیل:</strong> info@example.com<br>
+                <p style="font-family:B-Nazanin" dir="rtl"><i class="bi bi-geo-alt"></i>
+                زنجان ، کوی گلشهر کاظمیه ، فاز یک ، بخارای اول غربی 
+                </p>
+                <br>
+                <i class="bi bi-phone" style="font-family:Arial;"></i> 09127422940 <br>
+                <i class="bi bi-phone" style="font-family:Arial;"></i> 09128788708 <br>
+                <i class="bi bi-envelope"></i> radmanet@gmail.com<br>
               </p>
               <div class="social-links mt-3">
-                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
                 <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-                <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+                <a href="#" class="telegram"><i class="bx bxl-telegram"></i></a>
                 <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                <a href="#" ><img src="{% static "/img/icons/eitaa.png" %}" style="width:75%;height:26px;"></a>
               </div>
             </div>
           </div>
@@ -393,7 +700,7 @@
         <div style="color:white;font-weight: smale;">
           Linked<a href="https://www.linkedin.com/in/kian-almasi" style="color: DodgerBlue;font-weight: bold;"><i class="biu bi-linkedin" style="color: DodgerBlue; font-weight: bold;"></i></a>
         </div>
-        <div style="color:white;font-weight: smale;"> @اطلاعات شما توسط شرکت رادمان محفوظ میباشد</div>
+        <div style="color:white;font-weight: smale;"> .اطلاعات شما توسط شرکت رادمان محفوظ میباشد</div>
       </div>
     </div>
   </footer><!-- End Footer -->
@@ -424,16 +731,24 @@
       });
     });
   </script>
-  <!-- for type text -->
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
   <script>
-    var typed = new Typed('#typed-text', {
-      strings: ["درباره ما"],
-      typeSpeed: 1,     
-      loop: false,        
-      showCursor: false,  
-      backSpeed: 500,       
-      smartBackspace: false,  
+    var swiper = new Swiper('.swiper-container', {
+      loop: true,
+      autoplay: {
+        delay: 3000, 
+        disableOnInteraction: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        type: 'fraction',
+      },
     });
-  </script> 
+  </script>
 </body>
 </html>
